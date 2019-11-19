@@ -1,9 +1,8 @@
 import typescript from 'rollup-plugin-typescript';
 import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
-import resolve from 'rollup-plugin-node-resolve';
+
 const extensions = ['.js', '.ts'];
 
 export default {
@@ -25,15 +24,8 @@ export default {
     },
   ],
   plugins: [
-
-    // Compile TypeScript files.
     typescript({
       exclude: 'node_modules/**',
-    }),
-
-    resolve({
-      mainFields: ['module', 'jsnext'],
-      extensions,
     }),
 
     babel({
@@ -41,7 +33,5 @@ export default {
       extensions,
       runtimeHelpers: true,
     }),
-
-    commonjs(),
   ],
 }
