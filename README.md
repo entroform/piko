@@ -1,3 +1,9 @@
 # piko
 
-🧰 String, number, and general utility library.
+🧰 TypeScript utility library.
+
+## Install
+
+`npm i @nekobird/piko`
+
+
