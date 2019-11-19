@@ -55,7 +55,7 @@ export function cubicBezier(t: number, p1: number, cp1: number, cp2: number, p2:
   );
 }
 
-export function cycle(
+export function cycleNumber(
   value: number,
   range: NumberOrRange,
 ): number {
