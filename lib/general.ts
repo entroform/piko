@@ -7,6 +7,7 @@ import {
  * Cycles through the array from the given offset number.
  * The offset number represents a cycled index of the array.
  * 
+ * @typeparam A The type of array passed in.
  * @param array The array that you want to cycle through.
  * @param offset Array index offset.
  * @returns A cycled offsetted array value.
