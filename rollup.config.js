@@ -6,7 +6,7 @@ import pkg from './package.json';
 const extensions = ['.js', '.ts'];
 
 export default {
-  input: 'source/piko.ts',
+  input: 'lib/piko.ts',
   output: [
     {
       file: pkg.main,

@@ -3,6 +3,14 @@ import {
   getMaxArraysLength,
 } from './shared';
 
+/**
+ * Cycles through the array from the given offset number.
+ * The offset number represents a cycled index of the array.
+ * 
+ * @param array The array that you want to cycle through.
+ * @param offset Array index offset.
+ * @returns A cycled offsetted array value.
+ */
 export function cycleArray<A>(array: A[], offset: number): A {
   let index = offset % array.length;
 
@@ -19,6 +27,13 @@ export function cycleArray<A>(array: A[], offset: number): A {
   return array[index];
 }
 
+/**
+ * Enter an array of specified type and this returns a cycle array next function.
+ * Each time you call the returned function it will cycle through the array starting from the first item.
+ * 
+ * @param array The array that you want to cycle through.
+ * @returns A function that when you call returns the next item in the array.
+ */
 export function cycleArrayNext<A>(array: A[]): Function {
   let index = -1;
 
@@ -33,8 +48,21 @@ export function cycleArrayNext<A>(array: A[]): Function {
   };
 }
 
-// Returns a debouncer function that no matter the frequency of calls
-// will only be invoked after the given delay times out (in seconds).
+/**
+ * Returns a debounce function. Delay is in seconds. 
+ * 
+ * Debouncing is often used to improve browsers performance, but it has many other uses too.
+ * 
+ * A debounce function is a function that only fires after a certain amount of time have passed.
+ * Usually, this function is bound to an event that fires multiple times really fast.
+ * If the time between those events is smaller than the debounce delay,
+ * the function won't fire until the firing stops the delay time elapsed.
+ * This is useful for detecting or only do something only once event firing has stopped.
+ * 
+ * @param func Function that you want to fire after a certain amont of time have passed.
+ * @param delayInSeconds Delay, in seconds, before the function can fire between previous function call.
+ * @returns A debounce function.
+ */
 export function debounce(func: Function, delayInSeconds: number): Function {
   let timeout: number;
 
