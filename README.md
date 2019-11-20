@@ -1,6 +1,6 @@
 # piko
 
-🧰 TypeScript utility library.
+🧰 A general utility library for dealing with numbers, strings, and other things.
 
 ## Install
 
