@@ -2,7 +2,7 @@
   "name": "@nekobird/piko",
   "version": "0.0.2",
   "private": false,
-  "description": "String, number, and general utility library.",
+  "description": "A general utility library for dealing with numbers, strings, and other things.",
   "keywords": [
     "nekobird",
     "piko",
