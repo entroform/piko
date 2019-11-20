@@ -8,15 +8,15 @@ import {
  * The offset number represents a cycled index of the array.
  * 
  * @typeparam A The type of array passed in.
- * @param array The array that you want to cycle through.
- * @param offset Array index offset.
+ * @param array - The array that you want to cycle through.
+ * @param offset - Array index offset.
  * @returns A cycled offsetted array value.
  */
 export function cycleArray<A>(array: A[], offset: number): A {
   let index = offset % array.length;
 
   if (offset < 0) {
-    let remainder = Math.abs(offset) % array.length;
+    const remainder = Math.abs(offset) % array.length;
 
     if (remainder === 0) {
       index = 0;
@@ -32,7 +32,7 @@ export function cycleArray<A>(array: A[], offset: number): A {
  * Enter an array of specified type and this returns a cycle array next function.
  * Each time you call the returned function it will cycle through the array starting from the first item.
  * 
- * @param array The array that you want to cycle through.
+ * @param array - The array that you want to cycle through.
  * @returns A function that when you call returns the next item in the array.
  */
 export function cycleArrayNext<A>(array: A[]): Function {
@@ -60,8 +60,8 @@ export function cycleArrayNext<A>(array: A[]): Function {
  * the function won't fire until the firing stops the delay time elapsed.
  * This is useful for detecting or only do something only once event firing has stopped.
  * 
- * @param func Function that you want to fire after a certain amont of time have passed.
- * @param delayInSeconds Delay, in seconds, before the function can fire between previous function call.
+ * @param func - Function that you want to fire after a certain amont of time have passed.
+ * @param delayInSeconds - Delay, in seconds, before the function can fire between previous function call.
  * @returns A debounce function.
  */
 export function debounce(func: Function, delayInSeconds: number): Function {
