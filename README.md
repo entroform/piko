@@ -1,6 +1,6 @@
-# piko
+# 🧰 piko
 
-🧰 A general utility library for dealing with numbers, strings, and other things.
+A general utility library for dealing with numbers, strings, and other things.
 
 ## Install
 
