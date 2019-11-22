@@ -131,7 +131,7 @@ export function lerp(t: number, from: number, to: number): number {
   return (1 - t) * from + t * to;
 }
 
-export function random(
+export function randomNumber(
   range: NumberOrRange,
   whole: boolean = false,
   fixed: number = 2,
@@ -205,20 +205,20 @@ export function transform(
   return result;
 }
 
-export function within(
+export function numberIsWithin(
   value: number,
   min: number,
   max: number,
   isExclusive?: boolean,
 ): boolean;
 
-export function within(
+export function numberIsWithin(
   value: number,
   range: NumberOrRange,
   isExclusive?: boolean,
 ): boolean;
 
-export function within(
+export function numberIsWithin(
   value: number,
   a: NumberOrRange,
   b?: number | boolean,
@@ -247,7 +247,7 @@ export function within(
 
     range = getRangeFromNumberOrRange(a);
   } else {
-    throw new Error('Num.within: Invalid input.');
+    throw new Error('numberIsWithin: Invalid input.');
   }
 
   let [min, max] = range;

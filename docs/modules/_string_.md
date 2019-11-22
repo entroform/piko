@@ -30,7 +30,7 @@
 
 Ƭ **StringOrRegExp**: *string | RegExp*
 
-Defined in string.ts:1
+*Defined in [string.ts:1](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L1)*
 
 ## Functions
 
@@ -38,7 +38,7 @@ Defined in string.ts:1
 
 ▸ **hasUppercaseLetter**(...`values`: string[]): *boolean*
 
-Defined in string.ts:3
+*Defined in [string.ts:3](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L3)*
 
 **Parameters:**
 
@@ -54,7 +54,7 @@ ___
 
 ▸ **isKebabCase**(...`values`: string[]): *boolean*
 
-Defined in string.ts:7
+*Defined in [string.ts:7](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L7)*
 
 **Parameters:**
 
@@ -70,7 +70,7 @@ ___
 
 ▸ **isSnakeCase**(...`values`: string[]): *boolean*
 
-Defined in string.ts:16
+*Defined in [string.ts:16](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L16)*
 
 **Parameters:**
 
@@ -86,7 +86,7 @@ ___
 
 ▸ **isStringOrRegExp**(`thing`: any): *boolean*
 
-Defined in string.ts:101
+*Defined in [string.ts:101](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L101)*
 
 **Parameters:**
 
@@ -102,7 +102,7 @@ ___
 
 ▸ **isStringOrRegExpArray**(`thing`: any): *boolean*
 
-Defined in string.ts:105
+*Defined in [string.ts:105](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L105)*
 
 **Parameters:**
 
@@ -118,7 +118,7 @@ ___
 
 ▸ **kebabCaseToCamelCase**(`from`: string): *string*
 
-Defined in string.ts:25
+*Defined in [string.ts:25](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L25)*
 
 **Parameters:**
 
@@ -134,7 +134,7 @@ ___
 
 ▸ **lowercaseFirstLetter**(`string`: string): *string*
 
-Defined in string.ts:35
+*Defined in [string.ts:35](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L35)*
 
 **Parameters:**
 
@@ -150,7 +150,7 @@ ___
 
 ▸ **match**(`string`: string, `regex`: RegExp): *string | string[] | null*
 
-Defined in string.ts:39
+*Defined in [string.ts:39](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L39)*
 
 **Parameters:**
 
@@ -167,7 +167,7 @@ ___
 
 ▸ **removeExtraWhitespaces**(`string`: string): *string*
 
-Defined in string.ts:52
+*Defined in [string.ts:52](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L52)*
 
 **Parameters:**
 
@@ -183,7 +183,7 @@ ___
 
 ▸ **removeNewLines**(`string`: string): *string*
 
-Defined in string.ts:56
+*Defined in [string.ts:56](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L56)*
 
 **Parameters:**
 
@@ -199,7 +199,7 @@ ___
 
 ▸ **removeTabs**(`string`: string): *string*
 
-Defined in string.ts:60
+*Defined in [string.ts:60](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L60)*
 
 **Parameters:**
 
@@ -215,7 +215,7 @@ ___
 
 ▸ **replace**(`string`: string, `patterns`: [StringOrRegExp](_string_.md#stringorregexp), `replacement`: string | Function): *string*
 
-Defined in string.ts:65
+*Defined in [string.ts:65](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L65)*
 
 **Parameters:**
 
@@ -229,7 +229,7 @@ Name | Type |
 
 ▸ **replace**(`string`: string, `patterns`: [StringOrRegExp](_string_.md#stringorregexp)[], `replacement`: string | Function): *string*
 
-Defined in string.ts:71
+*Defined in [string.ts:71](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L71)*
 
 **Parameters:**
 
@@ -247,7 +247,7 @@ ___
 
 ▸ **uppercaseFirstLetter**(`string`: string): *string*
 
-Defined in string.ts:97
+*Defined in [string.ts:97](https://github.com/nekobird/piko/blob/ea1c1e7/lib/string.ts#L97)*
 
 **Parameters:**
 

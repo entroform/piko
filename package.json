@@ -1,6 +1,6 @@
 {
   "name": "@nekobird/piko",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "A general utility library for dealing with numbers, strings, and other things.",
   "keywords": [
