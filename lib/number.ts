@@ -121,9 +121,7 @@ export function hypotenuse(x: number, y: number): number {
   }
 
   const min = Math.min(Math.abs(x), Math.abs(y));
-
   const n = min / max;
-
   return max * Math.sqrt(1 + n * n);
 }
 

@@ -15,7 +15,7 @@
 
 Ƭ **NumberOrRange**: *number | [RangeArray](_interfaces_.md#rangearray)*
 
-*Defined in [interfaces.ts:3](https://github.com/nekobird/piko/blob/ea1c1e7/lib/interfaces.ts#L3)*
+*Defined in [interfaces.ts:3](https://github.com/nekobird/piko/blob/04b8fd5/lib/interfaces.ts#L3)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 Ƭ **RangeArray**: *[number, number]*
 
-*Defined in [interfaces.ts:1](https://github.com/nekobird/piko/blob/ea1c1e7/lib/interfaces.ts#L1)*
+*Defined in [interfaces.ts:1](https://github.com/nekobird/piko/blob/04b8fd5/lib/interfaces.ts#L1)*

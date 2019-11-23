@@ -1,6 +1,6 @@
 import {
-  getRandomInteger,
   getMaxArraysLength,
+  getRandomInteger,
 } from './shared';
 
 /**

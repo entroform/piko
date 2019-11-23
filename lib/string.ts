@@ -24,9 +24,10 @@ export function isSnakeCase(...values: string[]): boolean {
 
 export function kebabCaseToCamelCase(from: string): string {
   if (isKebabCase(from) === true) {
-    return from.replace(/(\-[a-z]{1})/g, match => {
-      return match.replace(/[\-]/g, '').toUpperCase();
-    });
+    return from.replace(/(\-[a-z]{1})/g, match => (
+      match.replace(/[\-]/g, '')
+           .toUpperCase()
+    ));
   }
 
   return from;
@@ -99,7 +100,7 @@ export function uppercaseFirstLetter(string: string): string {
 }
 
 export function isStringOrRegExp(thing: any): boolean {
-  return (typeof thing === 'string' || thing instanceof RegExp);
+  return typeof thing === 'string' || thing instanceof RegExp;
 }
 
 export function isStringOrRegExpArray(thing: any): boolean {
