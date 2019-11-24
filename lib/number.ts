@@ -59,9 +59,8 @@ export function cycleNumber(
   value: number,
   range: NumberOrRange,
 ): number {
-  range = getRangeFromNumberOrRange(range);
-
-  const [min, max] = orderRangeArray(range);
+  const _range = getRangeFromNumberOrRange(range);
+  const [min, max] = orderRangeArray(_range);
 
   if (min === 0 && max === 0) {
     return 0;
@@ -99,27 +98,19 @@ export function getEuclideanDistance(a: number, b: number): number {
   if (a === b) {
     return 0;
   }
-
   return Math.sqrt(Math.abs((a - b) * (b - a)));
 }
 
 export function getSign(value: number): number {
   const sign = Math.sign(value);
-
-  if (sign === 0) {
-    return 1;
-  }
-
-  return sign;
+  return sign || 1;
 }
 
 export function hypotenuse(x: number, y: number): number {
   let max = Math.max(Math.abs(x), Math.abs(y));
-
   if (max === 0) {
     max = 1;
   }
-
   const min = Math.min(Math.abs(x), Math.abs(y));
   const n = min / max;
   return max * Math.sqrt(1 + n * n);
@@ -153,7 +144,7 @@ export function reciprocal(value: number): number {
   if (value != 0) {
     return 1 / value;
   } else {
-    throw new Error('Num.reciprocal: Division by zero.');
+    throw new Error('reciprocal: Division by zero.');
   }
 }
 
@@ -190,14 +181,14 @@ export function transform(
   to: NumberOrRange,
   clampResult: boolean = true,
 ): number {
-  from = getRangeFromNumberOrRange(from);
-  to = getRangeFromNumberOrRange(to);
+  const _from = getRangeFromNumberOrRange(from);
+  const _to = getRangeFromNumberOrRange(to);
 
   // Division by zero returns Infinite in JavaScript?
-  let result = (value - from[0]) * ((to[1] - to[0]) / (from[1] - from[0])) + to[0];
+  const result = (value - _from[0]) * ((_to[1] - _to[0]) / (_from[1] - _from[0])) + _to[0];
 
-  if (clampResult === true) {
-    return clamp(result, to);
+  if (clampResult) {
+    return clamp(result, _to);
   }
 
   return result;
@@ -261,8 +252,7 @@ export function getRangeFromNumberOrRange(range: NumberOrRange): RangeArray {
   if (typeof range === 'number') {
     return [0, range];
   }
-
-  return range;
+  return [range[0], range[1]];
 }
 
 export function isNumberOrRange(thing: any): boolean {
