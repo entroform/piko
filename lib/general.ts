@@ -3,6 +3,14 @@ import {
   getRandomInteger,
 } from './shared';
 
+export function compose<T>(...funcs) {
+  return (...args: T[]) => funcs.reduceRight((a, f) => f(a), args);
+}
+
+export function composeRight<T>(...funcs) {
+  return (...args: T[]) => funcs.reduce((a, f) => f(a), args);
+}
+
 /**
  * Cycles through the array from the given offset number.
  * The offset number represents a cycled index of the array.
@@ -105,9 +113,7 @@ export function fillArraysToLargestLength(filler: unknown, ...arrays: unknown[][
 
 
 export function getMinArraysLength(...arrays: unknown[][]): number {
-  const lengths = arrays.map(array => array.length);
-
-  return Math.min(...lengths);
+  return Math.min(...arrays.map(array => array.length));
 }
 
 export function isEmptyObject(object: any): boolean {
@@ -197,8 +203,7 @@ export function promiseEach<A>(array: A[], func: (value: A) => Promise<void>): P
 }
 
 export function randomChoice<A>(...choices: A[]): A {
-  const index = getRandomInteger(0, choices.length - 1);
-  return choices[index];
+  return choices[getRandomInteger(0, choices.length - 1)];
 }
 
 export function sleep(timeInSeconds: number): Promise<void> {

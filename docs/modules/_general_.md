@@ -6,6 +6,8 @@
 
 ### Functions
 
+* [compose](_general_.md#compose)
+* [composeRight](_general_.md#composeright)
 * [cycleArray](_general_.md#cyclearray)
 * [cycleArrayNext](_general_.md#cyclearraynext)
 * [debounce](_general_.md#debounce)
@@ -15,6 +17,7 @@
 * [isEmptyObject](_general_.md#isemptyobject)
 * [isObject](_general_.md#isobject)
 * [isPromise](_general_.md#ispromise)
+* [memo](_general_.md#memo)
 * [promiseChain](_general_.md#promisechain)
 * [promiseEach](_general_.md#promiseeach)
 * [randomChoice](_general_.md#randomchoice)
@@ -24,11 +27,51 @@
 
 ## Functions
 
+###  compose
+
+▸ **compose**<**T**>(...`funcs`: any[]): *(Anonymous function)*
+
+*Defined in [general.ts:6](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L6)*
+
+**Type parameters:**
+
+▪ **T**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...funcs` | any[] |
+
+**Returns:** *(Anonymous function)*
+
+___
+
+###  composeRight
+
+▸ **composeRight**<**T**>(...`funcs`: any[]): *(Anonymous function)*
+
+*Defined in [general.ts:10](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L10)*
+
+**Type parameters:**
+
+▪ **T**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...funcs` | any[] |
+
+**Returns:** *(Anonymous function)*
+
+___
+
 ###  cycleArray
 
 ▸ **cycleArray**<**A**>(`array`: A[], `offset`: number): *A*
 
-*Defined in [general.ts:15](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L15)*
+*Defined in [general.ts:23](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L23)*
 
 Cycles through the array from the given offset number.
 The offset number represents a cycled index of the array.
@@ -56,7 +99,7 @@ ___
 
 ▸ **cycleArrayNext**<**A**>(`array`: A[]): *Function*
 
-*Defined in [general.ts:38](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L38)*
+*Defined in [general.ts:46](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L46)*
 
 Enter an array of specified type and this returns a cycle array next function.
 Each time you call the returned function it will cycle through the array starting from the first item.
@@ -81,7 +124,7 @@ ___
 
 ▸ **debounce**(`func`: Function, `delayInSeconds`: number): *Function*
 
-*Defined in [general.ts:67](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L67)*
+*Defined in [general.ts:75](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L75)*
 
 Returns a debounce function. Delay is in seconds.
 
@@ -110,7 +153,7 @@ ___
 
 ▸ **delay**(`callback`: Function, `delayInSeconds`: number): *Promise‹void›*
 
-*Defined in [general.ts:82](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L82)*
+*Defined in [general.ts:90](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L90)*
 
 **Parameters:**
 
@@ -127,7 +170,7 @@ ___
 
 ▸ **fillArraysToLargestLength**(`filler`: unknown, ...`arrays`: unknown[][]): *number*
 
-*Defined in [general.ts:94](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L94)*
+*Defined in [general.ts:102](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L102)*
 
 **Parameters:**
 
@@ -144,7 +187,7 @@ ___
 
 ▸ **getMinArraysLength**(...`arrays`: unknown[][]): *number*
 
-*Defined in [general.ts:107](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L107)*
+*Defined in [general.ts:115](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L115)*
 
 **Parameters:**
 
@@ -160,7 +203,7 @@ ___
 
 ▸ **isEmptyObject**(`object`: any): *boolean*
 
-*Defined in [general.ts:113](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L113)*
+*Defined in [general.ts:119](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L119)*
 
 **Parameters:**
 
@@ -176,7 +219,7 @@ ___
 
 ▸ **isObject**(`object`: any): *boolean*
 
-*Defined in [general.ts:120](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L120)*
+*Defined in [general.ts:126](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L126)*
 
 **Parameters:**
 
@@ -192,7 +235,7 @@ ___
 
 ▸ **isPromise**(...`things`: any[]): *boolean*
 
-*Defined in [general.ts:127](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L127)*
+*Defined in [general.ts:133](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L133)*
 
 **Parameters:**
 
@@ -204,11 +247,32 @@ Name | Type |
 
 ___
 
+###  memo
+
+▸ **memo**<**T**>(`func`: Function, `cache`: Map‹string, T›): *(Anonymous function)*
+
+*Defined in [general.ts:158](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L158)*
+
+**Type parameters:**
+
+▪ **T**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`func` | Function |
+`cache` | Map‹string, T› |
+
+**Returns:** *(Anonymous function)*
+
+___
+
 ###  promiseChain
 
 ▸ **promiseChain**(...`funcs`: function[]): *Promise‹void›*
 
-*Defined in [general.ts:152](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L152)*
+*Defined in [general.ts:172](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L172)*
 
 **Parameters:**
 
@@ -224,7 +288,7 @@ ___
 
 ▸ **promiseEach**<**A**>(`array`: A[], `func`: function): *Promise‹void›*
 
-*Defined in [general.ts:172](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L172)*
+*Defined in [general.ts:192](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L192)*
 
 **Type parameters:**
 
@@ -252,7 +316,7 @@ ___
 
 ▸ **randomChoice**<**A**>(...`choices`: A[]): *A*
 
-*Defined in [general.ts:185](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L185)*
+*Defined in [general.ts:205](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L205)*
 
 **Type parameters:**
 
@@ -272,7 +336,7 @@ ___
 
 ▸ **sleep**(`timeInSeconds`: number): *Promise‹void›*
 
-*Defined in [general.ts:190](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L190)*
+*Defined in [general.ts:209](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L209)*
 
 **Parameters:**
 
@@ -288,7 +352,7 @@ ___
 
 ▸ **throttle**(`func`: Function, `thresholdInSeconds`: number): *Function*
 
-*Defined in [general.ts:194](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L194)*
+*Defined in [general.ts:213](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L213)*
 
 **Parameters:**
 
@@ -305,7 +369,7 @@ ___
 
 ▸ **truthChain**(...`funcs`: function[]): *boolean*
 
-*Defined in [general.ts:221](https://github.com/nekobird/piko/blob/04b8fd5/lib/general.ts#L221)*
+*Defined in [general.ts:240](https://github.com/nekobird/piko/blob/28499a7/lib/general.ts#L240)*
 
 **Parameters:**
 

@@ -6,7 +6,5 @@ export function getRandomInteger(min: number, max: number): number {
 }
 
 export function getMaxArraysLength(...arrays: unknown[][]): number {
-  const lengths = arrays.map(array => array.length);
-
-  return Math.max(...lengths);
+  return Math.max(...arrays.map(array => array.length));
 }
