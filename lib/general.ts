@@ -13,6 +13,11 @@ export function composeRight<T>(...funcs) {
   return (...args: T[]) => funcs.reduce((a, f) => f(a), args);
 }
 
+// Another name for composeRight:
+export function pipe<T>(...funcs) {
+  return (...args: T[]) => funcs.reduce((a, f) => f(a), args);
+}
+
 /**
  * Cycles through the array from the given offset number.
  * The offset number represents a cycled index of the array.
