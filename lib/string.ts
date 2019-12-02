@@ -5,21 +5,17 @@ export function hasUppercaseLetter(...values: string[]): boolean {
 }
 
 export function isKebabCase(...values: string[]): boolean {
-  return values.every(value => {
-    return (
-      hasUppercaseLetter(value) === false
-      && value.match(/^([a-z]+|[a-z][a-z\-]+[a-z])$/g) !== null
-    )
-  });
+  return values.every(value => (
+    hasUppercaseLetter(value) === false
+    && value.match(/^([a-z]+|[a-z][a-z\-]+[a-z])$/g) !== null
+  ));
 }
 
 export function isSnakeCase(...values: string[]): boolean {
-  return values.every(value => {
-    return (
-      hasUppercaseLetter(value) === false
-      && value.match(/^([a-z]+|[a-z][a-z\_]+[a-z])$/g) !== null
-    )
-  });
+  return values.every(value => (
+    hasUppercaseLetter(value) === false
+    && value.match(/^([a-z]+|[a-z][a-z\_]+[a-z])$/g) !== null
+  ));
 }
 
 export function kebabCaseToCamelCase(from: string): string {
