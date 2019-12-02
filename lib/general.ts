@@ -141,12 +141,26 @@ export function isPromise(...things: any[]): boolean {
   for (let i = 0; i < things.length; i++) {
     const thing = things[i];
 
-    if (isPromise(thing) === false) {
+    if (!isPromise(thing)) {
       return false;
     }
   };
 
   return true;
+}
+
+export function memo<T>(func: Function, cache: Map<string, T>) {
+  return (...args) => {
+    const key = JSON.stringify(args);
+
+    if (cache.has(key)) {
+      return cache.get(key);
+    } else {
+      const value = func(...args);
+      cache.set(key, value);
+      return value;
+    }
+  }
 }
 
 export function promiseChain(...funcs: (() => Promise<void>)[]): Promise<void> {
