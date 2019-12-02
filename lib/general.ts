@@ -7,6 +7,8 @@ export function compose<T>(...funcs) {
   return (...args: T[]) => funcs.reduceRight((a, f) => f(a), args);
 }
 
+// This works too:
+// const compose = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));
 export function composeRight<T>(...funcs) {
   return (...args: T[]) => funcs.reduce((a, f) => f(a), args);
 }
