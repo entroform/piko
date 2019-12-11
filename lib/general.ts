@@ -3,25 +3,31 @@ import {
   getRandomInteger,
 } from './shared';
 
-export function compose<T>(...funcs) {
+export function compose<T = any>(...funcs: Function[]) {
   return (...args: T[]) => funcs.reduceRight((a, f) => f(a), args);
 }
 
 // This works too:
 // const compose = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));
-export function composeRight<T>(...funcs) {
+export function composeRight<T = any>(...funcs: Function[]) {
   return (...args: T[]) => funcs.reduce((a, f) => f(a), args);
 }
 
 // Another name for composeRight:
-export function pipe<T>(...funcs) {
+export function pipe<T = any>(...funcs: Function[]) {
   return (...args: T[]) => funcs.reduce((a, f) => f(a), args);
 }
 
-export function curry(func) {
-  return function currify(...args) {
-    return (args.length >= func.length) ? func.apply(null, args) : currify.bind(null, ...args);
+export function curry<T = any>(func: Function): Function {
+  return function currify(...args: T[]): Function {
+    return (args.length >= func.length)
+      ? func.apply(null, args)
+      : currify.bind(null, ...args);
   }
+}
+
+export function unary<T = any>(func: Function): Function {
+  return (...args: T[]) => func.call(null, args[0]);
 }
 
 /**
