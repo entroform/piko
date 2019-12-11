@@ -163,7 +163,6 @@ export function sumNumberArrays(...arrays: number[][]): number[] {
 
   for (let i = 0; i < maxLength; i++) {
     sum[i] = 0;
-
     arrays.forEach(array => {
       if (typeof array[i] === 'number') {
         sum[i] += array[i];
@@ -182,7 +181,7 @@ export function transform(
   clampResult: boolean = true,
 ): number {
   const _from = getRangeFromNumberOrRange(from);
-  const _to = getRangeFromNumberOrRange(to);
+  const _to   = getRangeFromNumberOrRange(to);
 
   // Division by zero returns Infinite in JavaScript?
   const result = (value - _from[0]) * ((_to[1] - _to[0]) / (_from[1] - _from[0])) + _to[0];
@@ -218,8 +217,12 @@ export function numberIsWithin(
   let isExclusive = false;
 
   if (
-    typeof a === 'number' && typeof b === 'number'
-    && (typeof c === 'boolean' || typeof c === 'undefined')
+       typeof a === 'number'
+    && typeof b === 'number'
+    && (
+         typeof c === 'boolean'
+      || typeof c === 'undefined'
+    )
   ) {
     if (typeof c === 'boolean') {
       isExclusive = c;
@@ -228,7 +231,10 @@ export function numberIsWithin(
     range = orderRangeArray([a, b]);
   } else if (
     isNumberOrRange(a) == true
-    && (typeof b === 'boolean' || typeof b === 'undefined')
+    && (
+         typeof b === 'boolean'
+      || typeof b === 'undefined'
+    )
   ) {
     if (typeof b === 'boolean') {
       isExclusive = b;
@@ -252,6 +258,7 @@ export function getRangeFromNumberOrRange(range: NumberOrRange): RangeArray {
   if (typeof range === 'number') {
     return [0, range];
   }
+
   return [range[0], range[1]];
 }
 
@@ -268,10 +275,7 @@ export function isRangeArray(thing: any): boolean {
 }
 
 export function orderRangeArray(range: RangeArray): RangeArray {
-  const min = Math.min(...range);
-  const max = Math.max(...range);
-
-  return [min, max];
+  return [Math.min(...range), Math.max(...range)];
 }
 
 /*

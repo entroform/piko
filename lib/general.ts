@@ -262,7 +262,6 @@ export function truthChain(...funcs: (() => boolean)[]): boolean {
   for (let i = 0; i < funcs.length; i++) {
     if (funcs[i]() === false) {
       result = false;
-
       break;
     }
   }

@@ -76,19 +76,17 @@ export function replace(
   patterns: StringOrRegExp | StringOrRegExp[],
   replacement: string | Function = '',
 ): string {
-  if (isStringOrRegExpArray(patterns) === true) {
-    patterns = patterns as StringOrRegExp[];
+  let result: string = string;
 
-    patterns.forEach(pattern => {
-      string = string.replace(pattern, replacement as string);
+  if (isStringOrRegExpArray(patterns) === true) {
+    (patterns as StringOrRegExp[]).forEach(pattern => {
+      result = string.replace(pattern, replacement as string);
     });
   } else if (isStringOrRegExp(patterns) === true) {
-    let pattern = patterns as StringOrRegExp;
-
-    string = string.replace(pattern, replacement as string);
+    result = string.replace(patterns as StringOrRegExp, replacement as string);
   }
 
-  return string;
+  return result;
 }
 
 export function uppercaseFirstLetter(string: string): string {
