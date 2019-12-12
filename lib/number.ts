@@ -123,12 +123,19 @@ export function getSign(value: number): number {
 }
 
 export function hypotenuse(x: number, y: number): number {
+  if (Math.hypot) {
+    return Math.hypot(x, y);
+  }
+
   let max = Math.max(Math.abs(x), Math.abs(y));
+
   if (max === 0) {
     max = 1;
   }
+
   const min = Math.min(Math.abs(x), Math.abs(y));
   const n = min / max;
+
   return max * Math.sqrt(1 + n * n);
 }
 
