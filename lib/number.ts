@@ -13,10 +13,9 @@ export function snapToInterval(
   origin: number = 0,
 ): number {
   const sign = Math.sign(value) || 1;
-  const valueFromOrigin = Math.abs(value - origin);
   const _interval = Math.abs(interval);
   const _value = Math.abs(value);
-  const remainder = valueFromOrigin % _interval;
+  const remainder = Math.abs(value - origin) % _interval;
   const result = remainder >= _interval / 2
     ? _value - remainder + _interval
     : _value - remainder;
