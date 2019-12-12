@@ -15,7 +15,7 @@
 
 ▸ **getMaxArraysLength**(...`arrays`: unknown[][]): *number*
 
-*Defined in [shared.ts:8](https://github.com/nekobird/piko/blob/28499a7/lib/shared.ts#L8)*
+*Defined in [shared.ts:7](https://github.com/nekobird/piko/blob/9c9e708/lib/shared.ts#L7)*
 
 **Parameters:**
 
@@ -31,7 +31,7 @@ ___
 
 ▸ **getRandomInteger**(`min`: number, `max`: number): *number*
 
-*Defined in [shared.ts:1](https://github.com/nekobird/piko/blob/28499a7/lib/shared.ts#L1)*
+*Defined in [shared.ts:1](https://github.com/nekobird/piko/blob/9c9e708/lib/shared.ts#L1)*
 
 **Parameters:**
 

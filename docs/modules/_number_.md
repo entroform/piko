@@ -34,7 +34,7 @@
 
 ▸ **average**(...`values`: number[]): *number*
 
-*Defined in [number.ts:10](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L10)*
+*Defined in [number.ts:26](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L26)*
 
 **Parameters:**
 
@@ -50,7 +50,7 @@ ___
 
 ▸ **clamp**(`value`: number, `min`: number, `max`: number): *number*
 
-*Defined in [number.ts:18](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L18)*
+*Defined in [number.ts:34](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L34)*
 
 **Parameters:**
 
@@ -64,7 +64,7 @@ Name | Type |
 
 ▸ **clamp**(`value`: number, `range`: [NumberOrRange](_interfaces_.md#numberorrange)): *number*
 
-*Defined in [number.ts:19](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L19)*
+*Defined in [number.ts:35](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L35)*
 
 **Parameters:**
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **countDigits**(`value`: number): *number*
 
-*Defined in [number.ts:39](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L39)*
+*Defined in [number.ts:55](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L55)*
 
 **Parameters:**
 
@@ -97,7 +97,7 @@ ___
 
 ▸ **cubicBezier**(`t`: number, `p1`: number, `cp1`: number, `cp2`: number, `p2`: number): *number*
 
-*Defined in [number.ts:49](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L49)*
+*Defined in [number.ts:65](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L65)*
 
 **Parameters:**
 
@@ -117,7 +117,7 @@ ___
 
 ▸ **cycleNumber**(`value`: number, `range`: [NumberOrRange](_interfaces_.md#numberorrange)): *number*
 
-*Defined in [number.ts:58](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L58)*
+*Defined in [number.ts:74](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L74)*
 
 **Parameters:**
 
@@ -134,7 +134,7 @@ ___
 
 ▸ **getEuclideanDistance**(`a`: number, `b`: number): *number*
 
-*Defined in [number.ts:97](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L97)*
+*Defined in [number.ts:113](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L113)*
 
 **Parameters:**
 
@@ -151,7 +151,7 @@ ___
 
 ▸ **getRangeFromNumberOrRange**(`range`: [NumberOrRange](_interfaces_.md#numberorrange)): *[RangeArray](_interfaces_.md#rangearray)*
 
-*Defined in [number.ts:251](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L251)*
+*Defined in [number.ts:273](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L273)*
 
 **Parameters:**
 
@@ -167,7 +167,7 @@ ___
 
 ▸ **getSign**(`value`: number): *number*
 
-*Defined in [number.ts:104](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L104)*
+*Defined in [number.ts:120](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L120)*
 
 **Parameters:**
 
@@ -183,7 +183,7 @@ ___
 
 ▸ **hypotenuse**(`x`: number, `y`: number): *number*
 
-*Defined in [number.ts:109](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L109)*
+*Defined in [number.ts:125](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L125)*
 
 **Parameters:**
 
@@ -200,7 +200,7 @@ ___
 
 ▸ **isNumberOrRange**(`thing`: any): *boolean*
 
-*Defined in [number.ts:258](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L258)*
+*Defined in [number.ts:281](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L281)*
 
 **Parameters:**
 
@@ -216,7 +216,7 @@ ___
 
 ▸ **isRangeArray**(`thing`: any): *boolean*
 
-*Defined in [number.ts:262](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L262)*
+*Defined in [number.ts:285](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L285)*
 
 **Parameters:**
 
@@ -232,7 +232,7 @@ ___
 
 ▸ **lerp**(`t`: number, `from`: number, `to`: number): *number*
 
-*Defined in [number.ts:119](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L119)*
+*Defined in [number.ts:135](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L135)*
 
 **Parameters:**
 
@@ -250,7 +250,7 @@ ___
 
 ▸ **numberIsWithin**(`value`: number, `min`: number, `max`: number, `isExclusive?`: undefined | false | true): *boolean*
 
-*Defined in [number.ts:197](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L197)*
+*Defined in [number.ts:212](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L212)*
 
 **Parameters:**
 
@@ -265,7 +265,7 @@ Name | Type |
 
 ▸ **numberIsWithin**(`value`: number, `range`: [NumberOrRange](_interfaces_.md#numberorrange), `isExclusive?`: undefined | false | true): *boolean*
 
-*Defined in [number.ts:204](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L204)*
+*Defined in [number.ts:219](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L219)*
 
 **Parameters:**
 
@@ -283,7 +283,7 @@ ___
 
 ▸ **orderRangeArray**(`range`: [RangeArray](_interfaces_.md#rangearray)): *[RangeArray](_interfaces_.md#rangearray)*
 
-*Defined in [number.ts:270](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L270)*
+*Defined in [number.ts:293](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L293)*
 
 **Parameters:**
 
@@ -299,7 +299,7 @@ ___
 
 ▸ **randomNumber**(`range`: [NumberOrRange](_interfaces_.md#numberorrange), `whole`: boolean, `fixed`: number): *number*
 
-*Defined in [number.ts:123](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L123)*
+*Defined in [number.ts:139](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L139)*
 
 **Parameters:**
 
@@ -317,7 +317,7 @@ ___
 
 ▸ **reciprocal**(`value`: number): *number*
 
-*Defined in [number.ts:143](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L143)*
+*Defined in [number.ts:159](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L159)*
 
 **Parameters:**
 
@@ -333,7 +333,7 @@ ___
 
 ▸ **roundTo**(`value`: number, `to`: number): *number*
 
-*Defined in [number.ts:151](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L151)*
+*Defined in [number.ts:167](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L167)*
 
 **Parameters:**
 
@@ -348,16 +348,17 @@ ___
 
 ###  snapToInterval
 
-▸ **snapToInterval**(`value`: number, `interval`: number): *number*
+▸ **snapToInterval**(`value`: number, `interval`: number, `origin`: number): *number*
 
-*Defined in [number.ts:282](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L282)*
+*Defined in [number.ts:10](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L10)*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`value` | number |
-`interval` | number |
+Name | Type | Default |
+------ | ------ | ------ |
+`value` | number | - |
+`interval` | number | - |
+`origin` | number | 0 |
 
 **Returns:** *number*
 
@@ -367,7 +368,7 @@ ___
 
 ▸ **sum**(...`values`: number[]): *number*
 
-*Defined in [number.ts:155](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L155)*
+*Defined in [number.ts:171](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L171)*
 
 **Parameters:**
 
@@ -383,7 +384,7 @@ ___
 
 ▸ **sumNumberArrays**(...`arrays`: number[][]): *number[]*
 
-*Defined in [number.ts:159](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L159)*
+*Defined in [number.ts:175](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L175)*
 
 **Parameters:**
 
@@ -399,7 +400,7 @@ ___
 
 ▸ **transform**(`value`: number, `from`: [NumberOrRange](_interfaces_.md#numberorrange), `to`: [NumberOrRange](_interfaces_.md#numberorrange), `clampResult`: boolean): *number*
 
-*Defined in [number.ts:178](https://github.com/nekobird/piko/blob/28499a7/lib/number.ts#L178)*
+*Defined in [number.ts:193](https://github.com/nekobird/piko/blob/9c9e708/lib/number.ts#L193)*
 
 **Parameters:**
 

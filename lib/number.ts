@@ -7,6 +7,22 @@ import {
   getMaxArraysLength,
 } from './shared';
 
+export function snapToInterval(
+  value: number,
+  interval: number,
+  origin: number = 0,
+): number {
+  const sign = Math.sign(value) || 1;
+  const valueFromOrigin = Math.abs(value - origin);
+  const _interval = Math.abs(interval);
+  const _value = Math.abs(value);
+  const remainder = valueFromOrigin % _interval;
+  const result = remainder >= _interval / 2
+    ? _value - remainder + _interval
+    : _value - remainder;
+  return result * sign;
+}
+
 export function average(...values: number[]): number {
   if (values.length < 2) {
     throw new Error ('Num.average: Expects at least two numbers.');
@@ -276,13 +292,4 @@ export function isRangeArray(thing: any): boolean {
 
 export function orderRangeArray(range: RangeArray): RangeArray {
   return [Math.min(...range), Math.max(...range)];
-}
-
-/*
- * Below: Still in progress.
- */
-
-// Snap value to an interval.
-function snapToInterval(value: number, interval: number): number {
-  return Math.round(value / interval) * interval;
 }
