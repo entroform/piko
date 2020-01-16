@@ -45,11 +45,9 @@ export function cycleArray<A>(array: A[], offset: number): A {
   if (offset < 0) {
     const remainder = Math.abs(offset) % array.length;
 
-    if (remainder === 0) {
-      index = 0;
-    } else {
-      index = array.length + remainder * -1;
-    }
+    index = remainder === 0
+      ? 0
+      : array.length + remainder * -1;
   }
 
   return array[index];
@@ -154,14 +152,12 @@ export function isPromise(...things: any[]): boolean {
     return false;
   }
 
-  const isPromise = thing => {
-    return (
-      typeof thing === 'object'
-      && typeof thing.then === 'function'
-      && thing instanceof Promise
-      && Promise.resolve(thing) === thing
-    );
-  }
+  const isPromise = <T>(thing: any): thing is Promise<T> => (
+    typeof thing === 'object'
+    && typeof thing.then === 'function'
+    && thing instanceof Promise
+    && Promise.resolve(thing) === thing
+  );
 
   for (let i = 0; i < things.length; i++) {
     const thing = things[i];

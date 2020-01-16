@@ -54,11 +54,7 @@ export function clamp(value: number, a: NumberOrRange, b?: number): number {
 export function countDigits(value: number): number {
   const matches = value.toString().match(/([\d])/g);
 
-  if (matches === null) {
-    return 0;
-  }
-
-  return matches.length;
+  return matches === null ? 0 : matches.length;
 }
 
 export function cubicBezier(t: number, p1: number, cp1: number, cp2: number, p2: number): number {
@@ -88,21 +84,13 @@ export function cycleNumber(
 
     let c = (db % da) + min;
 
-    if (c === min) {
-      return max;
-    }
-
-    return c;
+    return c === min ? max : c;
   } else if (value < min) {
     let db = getEuclideanDistance(value, min);
 
     let c = max - (db % da);
 
-    if (c === max) {
-      return min;
-    }
-
-    return c;
+    return c === max ? min : c;
   }
 
   return value;
@@ -110,10 +98,9 @@ export function cycleNumber(
 
 // https://en.wikipedia.org/wiki/Euclidean_distance
 export function getEuclideanDistance(a: number, b: number): number {
-  if (a === b) {
-    return 0;
-  }
-  return Math.sqrt(Math.abs((a - b) * (b - a)));
+  return a === b
+    ? 0
+    : Math.sqrt(Math.abs((a - b) * (b - a)));
 }
 
 export function getSign(value: number): number {
@@ -269,19 +256,15 @@ export function numberIsWithin(
 
   let [min, max] = range;
 
-  if (isExclusive === true) {
-    return value > min && value < max;
-  } else {
-    return value >= min && value <= max;
-  }
+  return isExclusive === true
+    ? value > min && value < max
+    : value >= min && value <= max;
 }
 
 export function getRangeFromNumberOrRange(range: NumberOrRange): RangeArray {
-  if (typeof range === 'number') {
-    return [0, range];
-  }
-
-  return [range[0], range[1]];
+  return typeof range === 'number'
+    ? [0, range]
+    : [range[0], range[1]];
 }
 
 export function isNumberOrRange(thing: any): boolean {
