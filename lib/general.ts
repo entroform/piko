@@ -153,7 +153,7 @@ export function isPromise(...things: any[]): boolean {
   }
 
   const isPromise = <T>(thing: any): thing is Promise<T> => (
-    typeof thing === 'object'
+       typeof thing === 'object'
     && typeof thing.then === 'function'
     && thing instanceof Promise
     && Promise.resolve(thing) === thing
@@ -191,13 +191,11 @@ export function promiseChain(...funcs: (() => Promise<void>)[]): Promise<void> {
     const loop = () => {
       currentIndex++;
 
-      if (typeof funcs[currentIndex] === 'function') {
-        funcs[currentIndex]()
+      typeof funcs[currentIndex] === 'function'
+        ? funcs[currentIndex]()
           .then(() => loop())
-          .catch(error => reject(error));
-      } else {
-        resolve();
-      }
+          .catch(error => reject(error))
+        : resolve();
     }
 
     loop();
@@ -210,9 +208,9 @@ export function promiseEach<A>(array: A[], func: (value: A) => Promise<void>): P
   }
 
   return array.reduce(
-    (previous: Promise<void>, current: A) => {
-      return previous.then(() => func(current));
-    },
+    (previous: Promise<void>, current: A) => (
+      previous.then(() => func(current))
+    ),
     Promise.resolve(),
   );
 }

@@ -21,3 +21,4 @@ test('should return 1 if offset of 3 is given.', () => {
 test('should return 3 if offset of 8 is given.', () => {
   expect(cycleArray([1, 2, 3], 8)).toBe(3);
 });
+
