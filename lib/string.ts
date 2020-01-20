@@ -19,7 +19,7 @@ export function isSnakeCase(...values: string[]): boolean {
 }
 
 export function kebabCaseToCamelCase(from: string): string {
-  if (isKebabCase(from) === true) {
+  if (isKebabCase(from)) {
     return from.replace(/(\-[a-z]{1})/g, match => (
       match.replace(/[\-]/g, '')
            .toUpperCase()
@@ -78,12 +78,12 @@ export function replace(
 ): string {
   let result: string = string;
 
-  if (isStringOrRegExpArray(patterns) === true) {
-    (patterns as StringOrRegExp[]).forEach(pattern => {
+  if (isStringOrRegExpArray(patterns)) {
+    patterns.forEach(pattern => {
       result = string.replace(pattern, replacement as string);
     });
-  } else if (isStringOrRegExp(patterns) === true) {
-    result = string.replace(patterns as StringOrRegExp, replacement as string);
+  } else if (isStringOrRegExp(patterns)) {
+    result = string.replace(patterns, replacement as string);
   }
 
   return result;
@@ -93,11 +93,11 @@ export function uppercaseFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export function isStringOrRegExp(thing: any): boolean {
+export function isStringOrRegExp(thing: any): thing is StringOrRegExp {
   return typeof thing === 'string' || thing instanceof RegExp;
 }
 
-export function isStringOrRegExpArray(thing: any): boolean {
+export function isStringOrRegExpArray(thing: any): thing is StringOrRegExp[] {
   return (
     Array.isArray(thing) === true
     && thing.every(member => isStringOrRegExp(member))

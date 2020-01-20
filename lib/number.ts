@@ -104,8 +104,7 @@ export function getEuclideanDistance(a: number, b: number): number {
 }
 
 export function getSign(value: number): number {
-  const sign = Math.sign(value);
-  return sign || 1;
+  return Math.sign(value) || 1;
 }
 
 export function hypotenuse(x: number, y: number): number {
@@ -137,24 +136,23 @@ export function randomNumber(
   range = getRangeFromNumberOrRange(range);
 
   if (range[0] === 0 && range[1] === 1) {
-    if (whole === true) {
-      return Math.floor(Math.random() * 2);
-    } else {
-      return parseFloat(Math.random().toFixed(fixed));
-    }
-  } else {
-    const number = transform(Math.random(), 1, range, false);
-
-    return parseInt(number.toFixed(0), 10);
+    return whole === true
+      ? Math.floor(Math.random() * 2)
+      : parseFloat(Math.random().toFixed(fixed));
   }
+  
+  return parseInt(
+    transform(Math.random(), 1, range, false).toFixed(0),
+    10,
+  );
 }
 
 export function reciprocal(value: number): number {
   if (value != 0) {
     return 1 / value;
-  } else {
-    throw new Error('reciprocal: Division by zero.');
   }
+
+  throw new Error('reciprocal: Division by zero.');
 }
 
 export function roundTo(value: number, to: number = 0): number {

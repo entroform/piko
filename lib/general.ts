@@ -176,11 +176,11 @@ export function memo<T>(func: Function, cache: Map<string, T>) {
 
     if (cache.has(key)) {
       return cache.get(key);
-    } else {
-      const value = func(...args);
-      cache.set(key, value);
-      return value;
     }
+
+    const value = func(...args);
+    cache.set(key, value);
+    return value;
   }
 }
 
