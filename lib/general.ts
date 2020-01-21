@@ -179,7 +179,9 @@ export function memo<T>(func: Function, cache: Map<string, T>) {
     }
 
     const value = func(...args);
+
     cache.set(key, value);
+
     return value;
   }
 }
@@ -193,8 +195,8 @@ export function promiseChain(...funcs: (() => Promise<void>)[]): Promise<void> {
 
       typeof funcs[currentIndex] === 'function'
         ? funcs[currentIndex]()
-          .then(() => loop())
-          .catch(error => reject(error))
+            .then(() => loop())
+            .catch(error => reject(error))
         : resolve();
     }
 
