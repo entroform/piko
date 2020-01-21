@@ -12,9 +12,9 @@ export function snapToInterval(
   interval: number,
   origin: number = 0,
 ): number {
-  const sign = Math.sign(value) || 1;
+  const sign      = Math.sign(value) || 1;
   const _interval = Math.abs(interval);
-  const _value = Math.abs(value);
+  const _value    = Math.abs(value);
   const remainder = Math.abs(value - origin) % _interval;
   const result = remainder >= _interval / 2
     ? _value - remainder + _interval
@@ -37,10 +37,7 @@ export function clamp(value: number, a: NumberOrRange, b?: number): number {
 
   if (typeof a === 'number' && typeof b === 'number') {
     range = orderRangeArray([a, b]);
-  } else if (
-    isNumberOrRange(a) === true
-    && typeof b === 'undefined'
-  ) {
+  } else if (isNumberOrRange(a) && typeof b === 'undefined') {
     range = getRangeFromNumberOrRange(a);
   } else {
     return value;
@@ -237,7 +234,7 @@ export function numberIsWithin(
 
     range = orderRangeArray([a, b]);
   } else if (
-    isNumberOrRange(a) == true
+    isNumberOrRange(a)
     && (
          typeof b === 'boolean'
       || typeof b === 'undefined'
@@ -271,7 +268,7 @@ export function isNumberOrRange(thing: any): boolean {
 
 export function isRangeArray(thing: any): boolean {
   return (
-    Array.isArray(thing) === true
+    Array.isArray(thing)
     && thing.length === 2
     && thing.every(member => typeof member === 'number')
   );

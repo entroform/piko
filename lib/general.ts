@@ -20,7 +20,7 @@ export function pipe<T = any>(...funcs: Function[]) {
 
 export function curry<T = any>(func: Function): Function {
   return function currify(...args: T[]): Function {
-    return (args.length >= func.length)
+    return args.length >= func.length
       ? func.apply(null, args)
       : currify.bind(null, ...args);
   }
@@ -63,7 +63,7 @@ export function cycleArray<A>(array: A[], offset: number): A {
 export function cycleArrayNext<A>(array: A[]): Function {
   let index = -1;
 
-  return function () {
+  return () => {
     index++;
 
     if (index > array.length - 1) {
@@ -94,7 +94,7 @@ export function debounce(func: Function, delayInSeconds: number): Function {
 
   const delay = delayInSeconds * 1000;
 
-  return function() {
+  return () => {
     clearTimeout(timeout);
 
     timeout = window.setTimeout(
@@ -134,17 +134,11 @@ export function getMinArraysLength(...arrays: unknown[][]): number {
 }
 
 export function isEmptyObject(object: any): boolean {
-  return (
-    isObject(object)
-    && Object.keys(object).length < 1
-  );
+  return isObject(object) && Object.keys(object).length < 1;
 }
 
 export function isObject(object: any): boolean {
-  return (
-    object !== null
-    && typeof object === 'object'
-  );
+  return object !== null && typeof object === 'object';
 }
 
 export function isPromise(...things: any[]): boolean {

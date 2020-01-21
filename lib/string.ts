@@ -21,8 +21,9 @@ export function isSnakeCase(...values: string[]): boolean {
 export function kebabCaseToCamelCase(from: string): string {
   if (isKebabCase(from)) {
     return from.replace(/(\-[a-z]{1})/g, match => (
-      match.replace(/[\-]/g, '')
-           .toUpperCase()
+      match
+        .replace(/[\-]/g, '')
+        .toUpperCase()
     ));
   }
 
@@ -38,7 +39,9 @@ export function match(string: string, regex: RegExp): string | string[] | null {
 
   if (!value) {
     return null;
-  } else if (value.length === 1) {
+  }
+
+  if (value.length === 1) {
     return value[0];
   }
 
@@ -99,7 +102,7 @@ export function isStringOrRegExp(thing: any): thing is StringOrRegExp {
 
 export function isStringOrRegExpArray(thing: any): thing is StringOrRegExp[] {
   return (
-    Array.isArray(thing) === true
+    Array.isArray(thing)
     && thing.every(member => isStringOrRegExp(member))
   );
 }
