@@ -6,7 +6,8 @@ import {
 test('hasUppercaseLetter', () => {
   expect(hasUppercaseLetter('Hello World')).toBe(true);
   expect(hasUppercaseLetter('hello world')).toBe(false);
-  expect(hasUppercaseLetter('hello world', 'I love cats')).toBe(true);
+  expect(hasUppercaseLetter('Hello World', 'I love cats')).toBe(true);
+  expect(hasUppercaseLetter('hello world', 'I love cats')).toBe(false);
   expect(hasUppercaseLetter('hello world', 'i love cats')).toBe(false);
 });
 
