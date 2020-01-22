@@ -1,7 +1,7 @@
 export type StringOrRegExp = string | RegExp;
 
 export function hasUppercaseLetter(...values: string[]): boolean {
-  return values.every(value => value !== value.toLowerCase());
+  return values.some(value => /[A-Z]+/g.test(value));
 }
 
 export function isKebabCase(...values: string[]): boolean {

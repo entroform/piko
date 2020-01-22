@@ -262,11 +262,11 @@ export function getRangeFromNumberOrRange(range: NumberOrRange): RangeArray {
     : [range[0], range[1]];
 }
 
-export function isNumberOrRange(thing: any): boolean {
+export function isNumberOrRange(thing: any): thing is NumberOrRange {
   return typeof thing === 'number' || isRangeArray(thing);
 }
 
-export function isRangeArray(thing: any): boolean {
+export function isRangeArray(thing: any): thing is RangeArray {
   return (
     Array.isArray(thing)
     && thing.length === 2

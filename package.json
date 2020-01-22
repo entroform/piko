@@ -1,6 +1,6 @@
 {
   "name": "@nekobird/piko",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "description": "A general utility library for dealing with numbers, strings, and other things.",
   "keywords": [
@@ -38,13 +38,14 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@types/jest": "^24.9.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "rimraf": "^3.0.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^24.3.0",
     "tslib": "^1.10.0",
-    "typedoc": "^0.16.7",
+    "typedoc": "^0.16.8",
     "typedoc-plugin-markdown": "^2.2.16",
     "typescript": "^3.7.5"
   },
