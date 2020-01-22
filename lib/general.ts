@@ -133,7 +133,7 @@ export function getMinArraysLength(...arrays: unknown[][]): number {
   return Math.min(...arrays.map(array => array.length));
 }
 
-export function isEmptyObject(object: any): boolean {
+export function isEmptyObject(object: any): object is {} {
   return isObject(object) && Object.keys(object).length < 1;
 }
 
