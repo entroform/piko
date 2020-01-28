@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "declaration": true,
     "declarationDir": "./build/types/",
+    "esModuleInterop": true,
     "lib": [
       "dom.iterable",
       "dom",

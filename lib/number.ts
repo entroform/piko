@@ -262,11 +262,11 @@ export function getRangeFromNumberOrRange(range: NumberOrRange): RangeArray {
     : [range[0], range[1]];
 }
 
-export function isNumberOrRange(thing: any): thing is NumberOrRange {
+export function isNumberOrRange(thing?: any): thing is NumberOrRange {
   return typeof thing === 'number' || isRangeArray(thing);
 }
 
-export function isRangeArray(thing: any): thing is RangeArray {
+export function isRangeArray(thing?: any): thing is RangeArray {
   return (
     Array.isArray(thing)
     && thing.length === 2
@@ -276,4 +276,16 @@ export function isRangeArray(thing: any): thing is RangeArray {
 
 export function orderRangeArray(range: RangeArray): RangeArray {
   return [Math.min(...range), Math.max(...range)];
+}
+
+export function isNumber(n?: any): n is number {
+  return typeof n === 'number' && !isNaN(n);
+}
+
+export function isInteger(n?: any): n is number {
+  return isNumber(n) && n % 1 === 0;
+}
+
+export function isValidArrayIndex(n?: any): n is number {
+  return isInteger(n) && n >= 0;
 }
