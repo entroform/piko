@@ -4,7 +4,7 @@ import {
   isSnakeCase,
 } from '../lib/piko';
 
-test('hasUppercaseLetter', () => {
+describe('hasUppercaseLetter', () => {
   expect(hasUppercaseLetter('Hello World')).toBe(true);
   expect(hasUppercaseLetter('hello world')).toBe(false);
   expect(hasUppercaseLetter('Hello World', 'I love cats')).toBe(true);

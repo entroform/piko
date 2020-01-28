@@ -35,7 +35,7 @@ export function clamp(value: number, range: NumberOrRange): number;
 export function clamp(value: number, a: NumberOrRange, b?: number): number {
   let range: RangeArray;
 
-  if (typeof a === 'number' && typeof b === 'number') {
+  if (isNumber(a) && isNumber(b)) {
     range = orderRangeArray([a, b]);
   } else if (isNumberOrRange(a) && typeof b === 'undefined') {
     range = getRangeFromNumberOrRange(a);
@@ -50,7 +50,6 @@ export function clamp(value: number, a: NumberOrRange, b?: number): number {
 
 export function countDigits(value: number): number {
   const matches = value.toString().match(/([\d])/g);
-
   return matches === null ? 0 : matches.length;
 }
 
@@ -168,7 +167,7 @@ export function sumNumberArrays(...arrays: number[][]): number[] {
   for (let i = 0; i < maxLength; i++) {
     sum[i] = 0;
     arrays.forEach(array => {
-      if (typeof array[i] === 'number') {
+      if (isNumber(array[i])) {
         sum[i] += array[i];
       }
     });
@@ -221,12 +220,8 @@ export function numberIsWithin(
   let isExclusive = false;
 
   if (
-       typeof a === 'number'
-    && typeof b === 'number'
-    && (
-         typeof c === 'boolean'
-      || typeof c === 'undefined'
-    )
+    isNumber(a) && isNumber(b)
+    && (typeof c === 'boolean' || typeof c === 'undefined')
   ) {
     if (typeof c === 'boolean') {
       isExclusive = c;
@@ -236,8 +231,7 @@ export function numberIsWithin(
   } else if (
     isNumberOrRange(a)
     && (
-         typeof b === 'boolean'
-      || typeof b === 'undefined'
+      typeof b === 'boolean' || typeof b === 'undefined'
     )
   ) {
     if (typeof b === 'boolean') {
@@ -257,20 +251,20 @@ export function numberIsWithin(
 }
 
 export function getRangeFromNumberOrRange(range: NumberOrRange): RangeArray {
-  return typeof range === 'number'
+  return isNumber(range)
     ? [0, range]
     : [range[0], range[1]];
 }
 
 export function isNumberOrRange(thing?: any): thing is NumberOrRange {
-  return typeof thing === 'number' || isRangeArray(thing);
+  return isNumber(thing) || isRangeArray(thing);
 }
 
 export function isRangeArray(thing?: any): thing is RangeArray {
   return (
     Array.isArray(thing)
     && thing.length === 2
-    && thing.every(member => typeof member === 'number')
+    && thing.every(member => isNumber(member))
   );
 }
 
