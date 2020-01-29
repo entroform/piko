@@ -11,3 +11,7 @@ export function getMaxArraysLength(...arrays: unknown[][]): number {
 export function isNumber(n?: any): n is number {
   return typeof n === 'number' && !isNaN(n);
 }
+
+export function isNullOrUndefined(v?: any): v is null | undefined {
+  return typeof v === 'undefined' || v === null;
+}
