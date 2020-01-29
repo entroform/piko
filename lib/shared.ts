@@ -7,3 +7,7 @@ export function getRandomInteger(min: number, max: number): number {
 export function getMaxArraysLength(...arrays: unknown[][]): number {
   return Math.max(...arrays.map(array => array.length));
 }
+
+export function isNumber(n?: any): n is number {
+  return typeof n === 'number' && !isNaN(n);
+}

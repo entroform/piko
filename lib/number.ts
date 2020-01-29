@@ -4,6 +4,7 @@ import {
 } from './interfaces';
 
 import {
+  isNumber,
   getMaxArraysLength,
 } from './shared';
 
@@ -272,9 +273,6 @@ export function orderRangeArray(range: RangeArray): RangeArray {
   return [Math.min(...range), Math.max(...range)];
 }
 
-export function isNumber(n?: any): n is number {
-  return typeof n === 'number' && !isNaN(n);
-}
 
 export function isInteger(n?: any): n is number {
   return isNumber(n) && n % 1 === 0;

@@ -23,10 +23,16 @@
     "target": "esnext",
   },
   "include": [
-    "./lib/*"
+    "./lib/*",
+    "tests"
   ],
   "exclude": [
     "node_modules",
     "tests"
-  ]
+  ],
+  "types": [
+    "jest",
+    "node"
+  ],
+  "typeRoots": ["node_modules/@types"],
 }

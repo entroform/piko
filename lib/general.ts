@@ -1,6 +1,7 @@
 import {
   getMaxArraysLength,
   getRandomInteger,
+  isNumber,
 } from './shared';
 
 export function compose<T = any>(...funcs: Function[]) {
@@ -147,15 +148,13 @@ export function isPromise(...things: any[]): boolean {
   }
 
   const isPromise = <T>(thing: any): thing is Promise<T> => (
-       typeof thing === 'object'
+    typeof thing === 'object'
     && typeof thing.then === 'function'
     && thing instanceof Promise
     && Promise.resolve(thing) === thing
   );
 
-  for (let i = 0; i < things.length; i++) {
-    const thing = things[i];
-
+  for (const thing in things) {
     if (!isPromise(thing)) {
       return false;
     }
@@ -228,7 +227,7 @@ export function throttle(func: Function, thresholdInSeconds: number): Function {
   return function() {
     const now = Date.now();
 
-    if (typeof last === 'number' && now < last + threshold) {
+    if (isNumber(last) && now < last + threshold) {
       clearTimeout(timeout);
 
       timeout = window.setTimeout(
@@ -247,14 +246,11 @@ export function throttle(func: Function, thresholdInSeconds: number): Function {
 }
 
 export function truthChain(...funcs: (() => boolean)[]): boolean {
-  let result = true;
-
-  for (let i = 0; i < funcs.length; i++) {
-    if (funcs[i]() === false) {
-      result = false;
-      break;
+  for (const func of funcs) {
+    if (!func()) {
+      return false;
     }
   }
 
-  return result;
+  return true;
 }

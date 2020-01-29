@@ -3,7 +3,6 @@ import {
   clamp,
   countDigits,
   isInteger,
-  isNumber,
   isValidArrayIndex,
   snapToInterval,
 } from '../lib/piko';
@@ -46,23 +45,6 @@ describe('countDigits', () => {
     expect(countDigits(1)).toEqual(1);
     expect(countDigits(123)).toEqual(3);
     expect(countDigits(0.123)).toEqual(4);
-  });
-});
-
-describe('isNumber', () => {
-  it('should return true if number is given', () => {
-    expect(isNumber(-1)).toEqual(true);
-    expect(isNumber(0.5)).toEqual(true);
-    expect(isNumber(0)).toEqual(true);
-    expect(isNumber(1)).toEqual(true);
-  });
-
-  it('should return false if other things', () => {
-    expect(isNumber('123')).toEqual(false);
-    expect(isNumber()).toEqual(false);
-    expect(isNumber(NaN)).toEqual(false);
-    expect(isNumber(null)).toEqual(false);
-    expect(isNumber(undefined)).toEqual(false);
   });
 });
 
