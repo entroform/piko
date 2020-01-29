@@ -51,42 +51,42 @@ describe('countDigits', () => {
 
 describe('isNumber', () => {
   it('should return true if number is given', () => {
-    expect(isNumber(-1)).toBeTruthy();
-    expect(isNumber(0.5)).toBeTruthy();
-    expect(isNumber(0)).toBeTruthy();
-    expect(isNumber(1)).toBeTruthy();
+    expect(isNumber(-1)).toEqual(true);
+    expect(isNumber(0.5)).toEqual(true);
+    expect(isNumber(0)).toEqual(true);
+    expect(isNumber(1)).toEqual(true);
   });
 
   it('should return false if other things', () => {
-    expect(isNumber('123')).toBeFalsy();
-    expect(isNumber()).toBeFalsy();
-    expect(isNumber(NaN)).toBeFalsy();
-    expect(isNumber(null)).toBeFalsy();
-    expect(isNumber(undefined)).toBeFalsy();
+    expect(isNumber('123')).toEqual(false);
+    expect(isNumber()).toEqual(false);
+    expect(isNumber(NaN)).toEqual(false);
+    expect(isNumber(null)).toEqual(false);
+    expect(isNumber(undefined)).toEqual(false);
   });
 });
 
 describe('isInteger', () => {
   it('should return true if an integer is given', () => {
-    expect(isInteger(1)).toBeTruthy();
-    expect(isInteger(0)).toBeTruthy();
-    expect(isInteger(-1)).toBeTruthy();
+    expect(isInteger(1)).toEqual(true);
+    expect(isInteger(0)).toEqual(true);
+    expect(isInteger(-1)).toEqual(true);
   });
 
   it('should return false otherwise', () => {
-    expect(isInteger(0.5)).toBeFalsy();
+    expect(isInteger(0.5)).toEqual(false);
   });
 });
 
 describe('isValidArrayIndex', () => {
   it('should return true if a valid index is given', () => {
-    expect(isValidArrayIndex(1)).toBeTruthy();
-    expect(isValidArrayIndex(0)).toBeTruthy();
+    expect(isValidArrayIndex(1)).toEqual(true);
+    expect(isValidArrayIndex(0)).toEqual(true);
   });
 
   it('should return false otherwise', () => {
-    expect(isValidArrayIndex(0.5)).toBeFalsy();
-    expect(isValidArrayIndex(-1)).toBeFalsy();
-    expect(isValidArrayIndex(NaN)).toBeFalsy();
+    expect(isValidArrayIndex(0.5)).toEqual(false);
+    expect(isValidArrayIndex(-1)).toEqual(false);
+    expect(isValidArrayIndex(NaN)).toEqual(false);
   });
 });
