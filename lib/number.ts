@@ -133,7 +133,7 @@ export function randomNumber(
   range = getRangeFromNumberOrRange(range);
 
   if (range[0] === 0 && range[1] === 1) {
-    return whole === true
+    return whole
       ? Math.floor(Math.random() * 2)
       : parseFloat(Math.random().toFixed(fixed));
   }
@@ -265,7 +265,7 @@ export function isRangeArray(thing?: any): thing is RangeArray {
   return (
     Array.isArray(thing)
     && thing.length === 2
-    && thing.every(member => isNumber(member))
+    && thing.every(isNumber)
   );
 }
 
@@ -280,4 +280,8 @@ export function isInteger(n?: any): n is number {
 
 export function isValidArrayIndex(n?: any): n is number {
   return isInteger(n) && n >= 0;
+}
+
+export function toNumber(thing: number | string): number {
+  return isNumber(thing) ? thing : parseFloat(thing);
 }

@@ -1,3 +1,5 @@
+import { isNumber } from "./shared";
+
 export type StringOrRegExp = string | RegExp;
 
 export function hasUppercaseLetter(...values: string[]): boolean {
@@ -105,4 +107,8 @@ export function isStringOrRegExpArray(thing: any): thing is StringOrRegExp[] {
     Array.isArray(thing)
     && thing.every(member => isStringOrRegExp(member))
   );
+}
+
+export function toString(thing: string | number) {
+  return isNumber(thing) ? thing.toString() : thing;
 }
