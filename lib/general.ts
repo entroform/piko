@@ -138,29 +138,26 @@ export function isEmptyObject(object: any): object is {} {
   return isObject(object) && Object.keys(object).length < 1;
 }
 
-export function isObject(object: any): boolean {
-  return object !== null && typeof object === 'object';
+export function isObject(object?: any): object is Object {
+  return typeof object === 'object' && object !== null;
 }
 
-export function isPromise(...things: any[]): boolean {
+export function isPromise<T>(thing?: any): thing is Promise<T>;
+export function isPromise(...things: any[]): boolean;
+export function isPromise<T>(...things: any[]): boolean {
   if (things.length === 0) {
     return false;
   }
 
   const isPromise = <T>(thing: any): thing is Promise<T> => (
-    typeof thing === 'object'
+    isObject(thing)
+    && 'then' in thing
     && typeof thing.then === 'function'
     && thing instanceof Promise
     && Promise.resolve(thing) === thing
   );
 
-  for (const thing in things) {
-    if (!isPromise(thing)) {
-      return false;
-    }
-  };
-
-  return true;
+  return things.every(isPromise);
 }
 
 export function memo<T>(func: Function, cache: Map<string, T>) {
@@ -246,11 +243,5 @@ export function throttle(func: Function, thresholdInSeconds: number): Function {
 }
 
 export function truthChain(...funcs: (() => boolean)[]): boolean {
-  for (const func of funcs) {
-    if (!func()) {
-      return false;
-    }
-  }
-
-  return true;
+  return funcs.every(func => func());
 }
