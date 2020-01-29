@@ -160,7 +160,7 @@ export function isPromise<T>(...things: any[]): boolean {
   return things.every(isPromise);
 }
 
-export function memo<T>(func: Function, cache: Map<string, T>) {
+export function memo<T>(func: Function, cache: Map<string, T>): Function {
   return (...args) => {
     const key = JSON.stringify(args);
 
@@ -173,6 +173,20 @@ export function memo<T>(func: Function, cache: Map<string, T>) {
     cache.set(key, value);
 
     return value;
+  }
+}
+
+export function once(fn: Function): Function {
+  let isCalled = false;
+  let returnValue = null;
+  return (...args) => {
+    if (!isCalled) {
+      returnValue = fn(...args);
+      isCalled = true;
+      return returnValue;
+    }
+
+    return returnValue;
   }
 }
 

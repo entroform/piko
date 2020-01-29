@@ -26,3 +26,4 @@ describe('getMaxArraysLength', () => {
     expect(getMaxArraysLength([0, 1, 2], [0], [0, 1])).toEqual(3);
   });
 });
+

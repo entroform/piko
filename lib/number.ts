@@ -2,10 +2,9 @@ import {
   NumberOrRange,
   RangeArray,
 } from './interfaces';
-
 import {
-  isNumber,
   getMaxArraysLength,
+  isNumber,
 } from './shared';
 
 export function snapToInterval(
@@ -24,11 +23,9 @@ export function snapToInterval(
 }
 
 export function average(...values: number[]): number {
-  if (values.length === 1) {
-    return values[0];
-  }
-
-  return sum(...values) / values.length;
+  return values.length === 1
+    ? values[0]
+    : sum(...values) / values.length;
 }
 
 export function clamp(value: number, min: number, max: number): number;
@@ -231,9 +228,7 @@ export function numberIsWithin(
     range = orderRangeArray([a, b]);
   } else if (
     isNumberOrRange(a)
-    && (
-      typeof b === 'boolean' || typeof b === 'undefined'
-    )
+    && (typeof b === 'boolean' || typeof b === 'undefined')
   ) {
     if (typeof b === 'boolean') {
       isExclusive = b;

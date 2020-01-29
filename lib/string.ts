@@ -63,7 +63,7 @@ export function removeTabs(string: string): string {
   return string.replace(/[\t]+/g, '');
 }
 
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter
 export function replace(
   string: string,
   patterns: StringOrRegExp,
