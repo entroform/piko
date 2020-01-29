@@ -23,8 +23,8 @@ export function snapToInterval(
 }
 
 export function average(...values: number[]): number {
-  if (values.length < 2) {
-    throw new Error ('Num.average: Expects at least two numbers.');
+  if (values.length === 1) {
+    return values[0];
   }
 
   return sum(...values) / values.length;
