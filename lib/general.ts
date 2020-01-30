@@ -175,7 +175,6 @@ export function once(fn: Function): Function {
     if (!isCalled) {
       returnValue = fn(...args);
       isCalled = true;
-      return returnValue;
     }
 
     return returnValue;

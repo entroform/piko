@@ -8,10 +8,10 @@ export function getMaxArraysLength(...arrays: unknown[][]): number {
   return Math.max(...arrays.map(array => array.length));
 }
 
-export function isNumber(n?: any): n is number {
-  return typeof n === 'number' && !isNaN(n);
+export function isNumber(value?: any): value is number {
+  return typeof value === 'number' && !isNaN(value);
 }
 
-export function isNullOrUndefined(v?: any): v is null | undefined {
-  return typeof v === 'undefined' || v === null;
+export function isNullOrUndefined(value?: any): value is null | undefined {
+  return typeof value === 'undefined' || value === null;
 }

@@ -240,9 +240,9 @@ export function numberIsWithin(
     return false;
   }
 
-  let [min, max] = range;
+  const [min, max] = range;
 
-  return isExclusive === true
+  return isExclusive
     ? value > min && value < max
     : value >= min && value <= max;
 }
