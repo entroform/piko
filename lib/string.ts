@@ -34,8 +34,8 @@ export function kebabCaseToCamelCase(from: string): string {
   return from;
 }
 
-export function lowercaseFirstLetter(string: string): string {
-  return string.charAt(0).toLowerCase() + string.slice(1);
+export function lowercaseFirstLetter(value: string): string {
+  return value.charAt(0).toLowerCase() + value.slice(1);
 }
 
 export function match(string: string, regex: RegExp): string | string[] | null {
@@ -53,64 +53,64 @@ export function match(string: string, regex: RegExp): string | string[] | null {
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace_in_the_DOM
-export function removeExtraWhitespaces(string: string): string {
-  return string.replace(/[\s]+/g, ' ');
+export function removeExtraWhitespaces(value: string): string {
+  return value.replace(/[\s]+/g, ' ');
 }
 
-export function removeNewLines(string: string): string {
-  return string.replace(/[\r\n]+/g, '');
+export function removeNewLines(value: string): string {
+  return value.replace(/[\r\n]+/g, '');
 }
 
-export function removeTabs(string: string): string {
-  return string.replace(/[\t]+/g, '');
+export function removeTabs(value: string): string {
+  return value.replace(/[\t]+/g, '');
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter
 export function replace(
-  string: string,
+  value: string,
   patterns: StringOrRegExp,
   replacement: string | Function,
 ): string
 
 export function replace(
-  string: string,
+  value: string,
   patterns: StringOrRegExp[],
   replacement: string | Function,
 ): string
   
 export function replace(
-  string: string,
+  value: string,
   patterns: StringOrRegExp | StringOrRegExp[],
   replacement: string | Function = '',
 ): string {
-  let result: string = string;
+  let result: string = value;
 
   if (isStringOrRegExpArray(patterns)) {
     patterns.forEach(pattern => {
-      result = string.replace(pattern, replacement as string);
+      result = value.replace(pattern, replacement as string);
     });
   } else if (isStringOrRegExp(patterns)) {
-    result = string.replace(patterns, replacement as string);
+    result = value.replace(patterns, replacement as string);
   }
 
   return result;
 }
 
-export function uppercaseFirstLetter(string: string): string {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+export function uppercaseFirstLetter(value: string): string {
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
-export function isStringOrRegExp(thing: any): thing is StringOrRegExp {
-  return typeof thing === 'string' || thing instanceof RegExp;
+export function isStringOrRegExp(value: any): value is StringOrRegExp {
+  return typeof value === 'string' || value instanceof RegExp;
 }
 
-export function isStringOrRegExpArray(thing: any): thing is StringOrRegExp[] {
+export function isStringOrRegExpArray(value: any): value is StringOrRegExp[] {
   return (
-    Array.isArray(thing)
-    && thing.every(member => isStringOrRegExp(member))
+    Array.isArray(value)
+    && value.every(isStringOrRegExp)
   );
 }
 
-export function toString(thing: string | number) {
-  return isNumber(thing) ? thing.toString() : thing;
+export function toString(value: string | number): string {
+  return isNumber(value) ? value.toString() : value;
 }
