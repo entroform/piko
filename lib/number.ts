@@ -236,7 +236,8 @@ export function numberIsWithin(
 
     range = getRangeFromNumberOrRange(a);
   } else {
-    throw new Error('numberIsWithin: Invalid input.');
+    // throw new Error('numberIsWithin: Invalid input.');
+    return false;
   }
 
   let [min, max] = range;

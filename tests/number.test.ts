@@ -2,9 +2,12 @@ import {
   average,
   clamp,
   countDigits,
+  getEuclideanDistance,
+  hypotenuse,
   isInteger,
   isValidArrayIndex,
   snapToInterval,
+  transform,
 } from '../lib/piko';
 
 describe('snapToInterval', () => {
@@ -12,6 +15,34 @@ describe('snapToInterval', () => {
     expect(snapToInterval(0.2, 1)).toEqual(0);
     expect(snapToInterval(0.5, 1)).toEqual(1);
     expect(snapToInterval(1, 1)).toEqual(1);
+  });
+});
+
+describe('getEuclideanDistance', () => {
+  it('should return interval value', () => {
+    expect(getEuclideanDistance(-1, 1)).toEqual(2);
+    expect(getEuclideanDistance(-2, -4)).toEqual(2);
+    expect(getEuclideanDistance(-6, -4)).toEqual(2);
+    expect(getEuclideanDistance(0, 1)).toEqual(1);
+    expect(getEuclideanDistance(0.5, 1)).toEqual(0.5);
+    expect(getEuclideanDistance(1, 0)).toEqual(1);
+    expect(getEuclideanDistance(1, 1)).toEqual(0);
+  });
+});
+
+describe('transform', () => {
+  it('should return new transformed number', () => {
+    expect(transform(0.5, 1, 100)).toEqual(50);
+    expect(transform(0.5, 1, [100, 60])).toEqual(80);
+    expect(transform(0.75, 1, [100, 0])).toEqual(25);
+    expect(transform(0.75, [1, 0], [100, 0])).toEqual(75);
+    expect(transform(0, [1, -1], [100, 0])).toEqual(50);
+  });
+});
+
+describe('hypotenuse', () => {
+  it('should return interval value', () => {
+    expect(hypotenuse(3, 4)).toEqual(5);
   });
 });
 

@@ -92,26 +92,19 @@ export function cycleArrayNext<A>(array: A[]): Function {
  */
 export function debounce(func: Function, delayInSeconds: number): Function {
   let timeout: number;
-
-  const delay = delayInSeconds * 1000;
-
   return () => {
     clearTimeout(timeout);
-
-    timeout = window.setTimeout(
+    timeout = setTimeout(
       () => func.apply(this, arguments),
-      delay
+      delayInSeconds * 1000
     );
   };
 }
 
-export function delay(callback: Function, delayInSeconds: number): Promise<void> {
+export function delay<T = void>(callback: Function, delayInSeconds: number): Promise<T> {
   return new Promise(resolve => {
     setTimeout(
-      () => {
-        callback();
-        resolve();
-      },
+      () => resolve(callback()),
       delayInSeconds * 1000
     );
   });
@@ -129,12 +122,11 @@ export function fillArraysToLargestLength(filler: unknown, ...arrays: unknown[][
   return maxLength;
 }
 
-
 export function getMinArraysLength(...arrays: unknown[][]): number {
   return Math.min(...arrays.map(array => array.length));
 }
 
-export function isEmptyObject(object: any): object is {} {
+export function isEmptyObject(object?: any): object is {} {
   return isObject(object) && Object.keys(object).length < 1;
 }
 
@@ -241,7 +233,7 @@ export function throttle(func: Function, thresholdInSeconds: number): Function {
     if (isNumber(last) && now < last + threshold) {
       clearTimeout(timeout);
 
-      timeout = window.setTimeout(
+      timeout = setTimeout(
         () => {
           last = now;
           func.apply(this, arguments);
