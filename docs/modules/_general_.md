@@ -19,6 +19,7 @@
 * [isObject](_general_.md#isobject)
 * [isPromise](_general_.md#ispromise)
 * [memo](_general_.md#memo)
+* [once](_general_.md#once)
 * [pipe](_general_.md#pipe)
 * [promiseChain](_general_.md#promisechain)
 * [promiseEach](_general_.md#promiseeach)
@@ -34,7 +35,7 @@
 
 ▸ **compose**<**T**>(...`funcs`: Function[]): *(Anonymous function)*
 
-*Defined in [general.ts:6](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L6)*
+*Defined in [general.ts:7](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L7)*
 
 **Type parameters:**
 
@@ -54,7 +55,7 @@ ___
 
 ▸ **composeRight**<**T**>(...`funcs`: Function[]): *(Anonymous function)*
 
-*Defined in [general.ts:12](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L12)*
+*Defined in [general.ts:13](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L13)*
 
 **Type parameters:**
 
@@ -74,7 +75,7 @@ ___
 
 ▸ **curry**<**T**>(`func`: Function): *Function*
 
-*Defined in [general.ts:21](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L21)*
+*Defined in [general.ts:22](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L22)*
 
 **Type parameters:**
 
@@ -94,7 +95,7 @@ ___
 
 ▸ **cycleArray**<**A**>(`array`: A[], `offset`: number): *A*
 
-*Defined in [general.ts:42](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L42)*
+*Defined in [general.ts:43](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L43)*
 
 Cycles through the array from the given offset number.
 The offset number represents a cycled index of the array.
@@ -122,7 +123,7 @@ ___
 
 ▸ **cycleArrayNext**<**A**>(`array`: A[]): *Function*
 
-*Defined in [general.ts:65](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L65)*
+*Defined in [general.ts:64](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L64)*
 
 Enter an array of specified type and this returns a cycle array next function.
 Each time you call the returned function it will cycle through the array starting from the first item.
@@ -147,7 +148,7 @@ ___
 
 ▸ **debounce**(`func`: Function, `delayInSeconds`: number): *Function*
 
-*Defined in [general.ts:94](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L94)*
+*Defined in [general.ts:93](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L93)*
 
 Returns a debounce function. Delay is in seconds.
 
@@ -174,9 +175,13 @@ ___
 
 ###  delay
 
-▸ **delay**(`callback`: Function, `delayInSeconds`: number): *Promise‹void›*
+▸ **delay**<**T**>(`callback`: Function, `delayInSeconds`: number): *Promise‹T›*
 
-*Defined in [general.ts:109](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L109)*
+*Defined in [general.ts:104](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L104)*
+
+**Type parameters:**
+
+▪ **T**
 
 **Parameters:**
 
@@ -185,7 +190,7 @@ Name | Type |
 `callback` | Function |
 `delayInSeconds` | number |
 
-**Returns:** *Promise‹void›*
+**Returns:** *Promise‹T›*
 
 ___
 
@@ -193,7 +198,7 @@ ___
 
 ▸ **fillArraysToLargestLength**(`filler`: unknown, ...`arrays`: unknown[][]): *number*
 
-*Defined in [general.ts:121](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L121)*
+*Defined in [general.ts:113](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L113)*
 
 **Parameters:**
 
@@ -210,7 +215,7 @@ ___
 
 ▸ **getMinArraysLength**(...`arrays`: unknown[][]): *number*
 
-*Defined in [general.ts:134](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L134)*
+*Defined in [general.ts:125](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L125)*
 
 **Parameters:**
 
@@ -224,41 +229,57 @@ ___
 
 ###  isEmptyObject
 
-▸ **isEmptyObject**(`object`: any): *boolean*
+▸ **isEmptyObject**(`object?`: any): *object is object*
 
-*Defined in [general.ts:138](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L138)*
+*Defined in [general.ts:129](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L129)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`object` | any |
+`object?` | any |
 
-**Returns:** *boolean*
+**Returns:** *object is object*
 
 ___
 
 ###  isObject
 
-▸ **isObject**(`object`: any): *boolean*
+▸ **isObject**(`object?`: any): *object is Object*
 
-*Defined in [general.ts:145](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L145)*
+*Defined in [general.ts:133](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L133)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`object` | any |
+`object?` | any |
 
-**Returns:** *boolean*
+**Returns:** *object is Object*
 
 ___
 
 ###  isPromise
 
+▸ **isPromise**<**T**>(`thing?`: any): *thing is Promise<T>*
+
+*Defined in [general.ts:137](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L137)*
+
+**Type parameters:**
+
+▪ **T**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`thing?` | any |
+
+**Returns:** *thing is Promise<T>*
+
 ▸ **isPromise**(...`things`: any[]): *boolean*
 
-*Defined in [general.ts:152](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L152)*
+*Defined in [general.ts:138](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L138)*
 
 **Parameters:**
 
@@ -272,9 +293,9 @@ ___
 
 ###  memo
 
-▸ **memo**<**T**>(`func`: Function, `cache`: Map‹string, T›): *(Anonymous function)*
+▸ **memo**<**T**>(`func`: Function, `cache`: Map‹string, T›): *Function*
 
-*Defined in [general.ts:177](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L177)*
+*Defined in [general.ts:155](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L155)*
 
 **Type parameters:**
 
@@ -287,7 +308,23 @@ Name | Type |
 `func` | Function |
 `cache` | Map‹string, T› |
 
-**Returns:** *(Anonymous function)*
+**Returns:** *Function*
+
+___
+
+###  once
+
+▸ **once**(`fn`: Function): *Function*
+
+*Defined in [general.ts:171](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L171)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`fn` | Function |
+
+**Returns:** *Function*
 
 ___
 
@@ -295,7 +332,7 @@ ___
 
 ▸ **pipe**<**T**>(...`funcs`: Function[]): *(Anonymous function)*
 
-*Defined in [general.ts:17](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L17)*
+*Defined in [general.ts:18](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L18)*
 
 **Type parameters:**
 
@@ -315,7 +352,7 @@ ___
 
 ▸ **promiseChain**(...`funcs`: function[]): *Promise‹void›*
 
-*Defined in [general.ts:191](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L191)*
+*Defined in [general.ts:185](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L185)*
 
 **Parameters:**
 
@@ -331,7 +368,7 @@ ___
 
 ▸ **promiseEach**<**A**>(`array`: A[], `func`: function): *Promise‹void›*
 
-*Defined in [general.ts:211](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L211)*
+*Defined in [general.ts:203](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L203)*
 
 **Type parameters:**
 
@@ -359,7 +396,7 @@ ___
 
 ▸ **randomChoice**<**A**>(...`choices`: A[]): *A*
 
-*Defined in [general.ts:224](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L224)*
+*Defined in [general.ts:216](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L216)*
 
 **Type parameters:**
 
@@ -379,7 +416,7 @@ ___
 
 ▸ **sleep**(`timeInSeconds`: number): *Promise‹void›*
 
-*Defined in [general.ts:228](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L228)*
+*Defined in [general.ts:220](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L220)*
 
 **Parameters:**
 
@@ -395,7 +432,7 @@ ___
 
 ▸ **throttle**(`func`: Function, `thresholdInSeconds`: number): *Function*
 
-*Defined in [general.ts:232](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L232)*
+*Defined in [general.ts:224](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L224)*
 
 **Parameters:**
 
@@ -412,7 +449,7 @@ ___
 
 ▸ **truthChain**(...`funcs`: function[]): *boolean*
 
-*Defined in [general.ts:259](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L259)*
+*Defined in [general.ts:251](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L251)*
 
 **Parameters:**
 
@@ -428,7 +465,7 @@ ___
 
 ▸ **unary**<**T**>(`func`: Function): *Function*
 
-*Defined in [general.ts:29](https://github.com/nekobird/piko/blob/9c9e708/lib/general.ts#L29)*
+*Defined in [general.ts:30](https://github.com/nekobird/piko/blob/a0c0ecf/lib/general.ts#L30)*
 
 **Type parameters:**
 

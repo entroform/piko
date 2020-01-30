@@ -1,4 +1,6 @@
-import { isNumber } from "./shared";
+import {
+  isNumber,
+} from './shared';
 
 export type StringOrRegExp = string | RegExp;
 
@@ -9,14 +11,14 @@ export function hasUppercaseLetter(...values: string[]): boolean {
 export function isKebabCase(...values: string[]): boolean {
   return values.every(value => (
     hasUppercaseLetter(value) === false
-    && value.match(/^([a-z]+|[a-z][a-z\-]+[a-z])$/g) !== null
+    && /^([a-z]+|[a-z][a-z\-]+[a-z])$/g.test(value)
   ));
 }
 
 export function isSnakeCase(...values: string[]): boolean {
   return values.every(value => (
     hasUppercaseLetter(value) === false
-    && value.match(/^([a-z]+|[a-z][a-z\_]+[a-z])$/g) !== null
+    && /^([a-z]+|[a-z][a-z\_]+[a-z])$/g.test(value)
   ));
 }
 
