@@ -104,7 +104,7 @@ export function isStringOrRegExp(value: any): value is StringOrRegExp {
   return typeof value === 'string' || value instanceof RegExp;
 }
 
-export function isStringOrRegExpArray(value: any): value is StringOrRegExp[] {
+export function isStringOrRegExpArray(value?: any): value is StringOrRegExp[] {
   return (
     Array.isArray(value)
     && value.every(isStringOrRegExp)
