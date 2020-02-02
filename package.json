@@ -1,6 +1,6 @@
 {
   "name": "@nekobird/piko",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "description": "A general utility library for dealing with numbers, strings, and other things.",
   "keywords": [
@@ -18,20 +18,21 @@
   },
   "license": "MIT",
   "author": "Andrew Prasetya",
-  "files": [
-    "build/**/*"
-  ],
   "sideEffects": false,
   "main": "build/commonjs/piko.js",
   "module": "build/esm/piko.js",
   "jsnext:main": "build/esm/piko.js",
+  "types": "build/types/piko.d.ts",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
     "build": "tsc --emitDeclarationOnly --outDir build/types/; rollup -c rollup.config.js",
     "build:docs": "typedoc --plugin typedoc-plugin-markdown --out docs lib",
     "clean": "rimraf build",
+    "coverage": "jest --coverage",
     "prepublishOnly": "npm run build",
-    "test": "jest --watch",
-    "coverage": "jest --coverage"
+    "test": "jest --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
