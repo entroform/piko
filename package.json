@@ -1,6 +1,6 @@
 {
   "name": "@nekobird/piko",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "description": "A general utility library for dealing with numbers, strings, and other things.",
   "keywords": [
@@ -22,12 +22,12 @@
   "main": "build/commonjs/piko.js",
   "module": "build/esm/piko.js",
   "jsnext:main": "build/esm/piko.js",
-  "types": "build/types/piko.d.ts",
+  "types": "build/types/lib/piko.d.ts",
   "files": [
     "build/**/*"
   ],
   "scripts": {
-    "build": "tsc --emitDeclarationOnly --outDir build/types/; rollup -c rollup.config.js",
+    "build": "rimraf build; tsc --emitDeclarationOnly; rollup -c rollup.config.js",
     "build:docs": "typedoc --plugin typedoc-plugin-markdown --out docs lib",
     "clean": "rimraf build",
     "coverage": "jest --coverage",
