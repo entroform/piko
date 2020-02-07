@@ -3,6 +3,7 @@ import {
   composeRight,
   curry,
   cycleArray,
+  cycleArrayNext,
   debounce,
   delay,
   isEmptyObject,
@@ -41,6 +42,31 @@ describe('curry', () => {
   });
 });
 
+describe('unary', () => {
+  const func = unary((a, b = 1) => a + b);
+  expect(func(1, 0)).toEqual(2);
+});
+
+describe('cycleArray', () => {
+  it('should cycle the value of the array based on the given offset', () => {
+    expect(cycleArray([1, 2, 3], 0)).toEqual(1);
+    expect(cycleArray([1, 2, 3], 2)).toEqual(3);
+    expect(cycleArray([1, 2, 3], -1)).toEqual(3);
+    expect(cycleArray([1, 2, 3], 3)).toEqual(1);
+    expect(cycleArray([1, 2, 3], 8)).toEqual(3);  
+  });
+});
+
+describe('cycleArrayNext', () => {
+  it('the returned next function should return the next value in the given array', () => {
+    const next = cycleArrayNext([1, 2, 3]);
+    expect(next()).toEqual(1);
+    expect(next()).toEqual(2);
+    expect(next()).toEqual(3);
+    expect(next()).toEqual(1);
+  });
+});
+
 describe('debounce', () => {
   it('should be called once after 500ms time elapsed without being called', () => {
     jest.useFakeTimers();
@@ -74,19 +100,6 @@ describe('delay', () => {
     expect(result).toEqual(1);
     expect(callback).toHaveBeenCalledTimes(1);
   });
-});
-
-describe('unary', () => {
-  const func = unary((a, b = 1) => a + b);
-  expect(func(1, 0)).toEqual(2);
-});
-
-describe('cycleArray.', () => {
-  expect(cycleArray([1, 2, 3], 0)).toEqual(1);
-  expect(cycleArray([1, 2, 3], 2)).toEqual(3);
-  expect(cycleArray([1, 2, 3], -1)).toEqual(3);
-  expect(cycleArray([1, 2, 3], 3)).toEqual(1);
-  expect(cycleArray([1, 2, 3], 8)).toEqual(3);
 });
 
 describe('once', () => {
