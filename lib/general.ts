@@ -200,16 +200,12 @@ export function promiseChain(...funcs: (() => Promise<void>)[]): Promise<void> {
 }
 
 export function promiseEach<A>(array: A[], func: (value: A) => Promise<void>): Promise<void> {
-  if (array.length === 0) {
-    return Promise.resolve();
-  }
-
-  return array.reduce(
-    (previous: Promise<void>, current: A) => (
-      previous.then(() => func(current))
-    ),
-    Promise.resolve(),
-  );
+  return array.length === 0
+    ? Promise.resolve()
+    : array.reduce(
+        (previous: Promise<void>, current: A) => previous.then(() => func(current)),
+        Promise.resolve(),
+      );
 }
 
 export function randomChoice<A>(...choices: A[]): A {
