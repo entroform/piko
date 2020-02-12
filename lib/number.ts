@@ -44,7 +44,7 @@ export function clamp(value: number, a: NumberOrRange, b?: number): number {
 
 export function countDigits(value: number): number {
   const matches = value.toString().match(/([\d])/g);
-  return matches === null ? 0 : matches.length;
+  return matches ? matches.length : 0;
 }
 
 export function cubicBezier(t: number, p1: number, cp1: number, cp2: number, p2: number): number {
@@ -273,7 +273,6 @@ export function isRangeArray(thing?: any): thing is RangeArray {
 export function orderRangeArray(range: RangeArray): RangeArray {
   return [Math.min(...range), Math.max(...range)];
 }
-
 
 export function isInteger(n?: any): n is number {
   return isNumber(n) && n % 1 === 0;
