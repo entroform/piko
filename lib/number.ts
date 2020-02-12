@@ -31,19 +31,15 @@ export function average(...values: number[]): number {
 export function clamp(value: number, min: number, max: number): number;
 export function clamp(value: number, range: NumberOrRange): number;
 export function clamp(value: number, a: NumberOrRange, b?: number): number {
-  let range: RangeArray;
+  const range: RangeArray | null = isNumber(a) && isNumber(b)
+    ? orderRangeArray([a, b])
+    : isNumberOrRange(a) && typeof b === 'undefined'
+      ? orderRangeArray(getRangeFromNumberOrRange(a))
+      : null
 
-  if (isNumber(a) && isNumber(b)) {
-    range = orderRangeArray([a, b]);
-  } else if (isNumberOrRange(a) && typeof b === 'undefined') {
-    range = getRangeFromNumberOrRange(a);
-  } else {
-    return value;
-  }
-
-  let [min, max] = orderRangeArray(range);
-
-  return Math.max(min, Math.min(value, max));
+  return range
+    ? Math.max(range[0], Math.min(value, range[1]))
+    : value;
 }
 
 export function countDigits(value: number): number {
@@ -74,16 +70,12 @@ export function cycleNumber(
   const da = getEuclideanDistance(min, max);
 
   if (value > max) {
-    let db = getEuclideanDistance(value, max);
-
-    let c = (db % da) + min;
-
+    const db = getEuclideanDistance(value, max);
+    const c = (db % da) + min;
     return c === min ? max : c;
   } else if (value < min) {
-    let db = getEuclideanDistance(value, min);
-
-    let c = max - (db % da);
-
+    const db = getEuclideanDistance(value, min);
+    const c = max - (db % da);
     return c === max ? min : c;
   }
 
@@ -106,11 +98,7 @@ export function hypotenuse(x: number, y: number): number {
     return Math.hypot(x, y);
   }
 
-  let max = Math.max(Math.abs(x), Math.abs(y));
-
-  if (max === 0) {
-    max = 1;
-  }
+  const max = Math.max(Math.abs(x), Math.abs(y)) || 1;
 
   const min = Math.min(Math.abs(x), Math.abs(y));
   const n = min / max;
@@ -127,18 +115,16 @@ export function randomNumber(
   whole: boolean = false,
   fixed: number = 2,
 ): number {
-  range = getRangeFromNumberOrRange(range);
+  const _range = getRangeFromNumberOrRange(range);
 
-  if (range[0] === 0 && range[1] === 1) {
-    return whole
+  return _range[0] === 0 && _range[1] === 1
+    ? whole
       ? Math.floor(Math.random() * 2)
-      : parseFloat(Math.random().toFixed(fixed));
-  }
-  
-  return parseInt(
-    transform(Math.random(), 1, range, false).toFixed(0),
-    10,
-  );
+      : parseFloat(Math.random().toFixed(fixed))
+    : parseInt(
+        transform(Math.random(), 1, _range, false).toFixed(0),
+        10,
+      );
 }
 
 export function reciprocal(value: number): number {
@@ -187,11 +173,9 @@ export function transform(
   // Division by zero returns Infinite in JavaScript?
   const result = (value - _from[0]) * ((_to[1] - _to[0]) / (_from[1] - _from[0])) + _to[0];
 
-  if (clampResult) {
-    return clamp(result, _to);
-  }
-
-  return result;
+  return clampResult
+    ? clamp(result, _to)
+    : result;
 }
 
 export function numberIsWithin(
@@ -245,6 +229,27 @@ export function numberIsWithin(
   return isExclusive
     ? value > min && value < max
     : value >= min && value <= max;
+}
+
+export function createArrayOfConsecutiveNumbers(range: NumberOrRange): number[];
+export function createArrayOfConsecutiveNumbers(start: number, end: number): number[];
+export function createArrayOfConsecutiveNumbers(a: NumberOrRange, b?: number): number[] {
+  const range: RangeArray | null = isNumberOrRange(a) && typeof b === 'undefined'
+    ? getRangeFromNumberOrRange(a)
+    : isNumber(a) && isNumber(b)
+      ? [a, b]
+      : null;
+
+  return range
+    ? range[0] !== range[1]
+      ? [...Array(getEuclideanDistance(...range) + 1).keys()]
+        .map(n =>
+          range[0] > range[1]
+            ? range[0] - n
+            : n + range[0]
+        )
+      : []
+    : [];
 }
 
 export function getRangeFromNumberOrRange(range: NumberOrRange): RangeArray {

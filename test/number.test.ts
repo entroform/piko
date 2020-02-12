@@ -2,6 +2,7 @@ import {
   average,
   clamp,
   countDigits,
+  createArrayOfConsecutiveNumbers,
   getEuclideanDistance,
   hypotenuse,
   isInteger,
@@ -101,5 +102,16 @@ describe('isValidArrayIndex', () => {
     expect(isValidArrayIndex(0.5)).toEqual(false);
     expect(isValidArrayIndex(-1)).toEqual(false);
     expect(isValidArrayIndex(NaN)).toEqual(false);
+  });
+});
+
+describe('createArrayOfConsecutiveNumbers', () => {
+  it('should return an array of consecutive numbers', () => {
+    expect(createArrayOfConsecutiveNumbers(0, 0)).toEqual([]);
+    expect(createArrayOfConsecutiveNumbers(0, 3)).toEqual([0, 1, 2, 3]);
+    expect(createArrayOfConsecutiveNumbers(1, 3)).toEqual([1, 2, 3]);
+    expect(createArrayOfConsecutiveNumbers(3, 1)).toEqual([3, 2, 1]);
+    expect(createArrayOfConsecutiveNumbers(-2, 2)).toEqual([-2, -1, 0, 1, 2]);
+    expect(createArrayOfConsecutiveNumbers(2, -2)).toEqual([2, 1, 0, -1, -2]);
   });
 });
