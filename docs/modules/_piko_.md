@@ -14,6 +14,7 @@
 * [compose](_piko_.md#compose)
 * [composeRight](_piko_.md#composeright)
 * [countDigits](_piko_.md#countdigits)
+* [createArrayOfConsecutiveNumbers](_piko_.md#createarrayofconsecutivenumbers)
 * [cubicBezier](_piko_.md#cubicbezier)
 * [curry](_piko_.md#curry)
 * [cycleArray](_piko_.md#cyclearray)
@@ -65,8 +66,8 @@
 * [sleep](_piko_.md#sleep)
 * [snapToInterval](_piko_.md#snaptointerval)
 * [sum](_piko_.md#sum)
-* [sumNumberArrays](_piko_.md#sumnumberarrays)
 * [throttle](_piko_.md#throttle)
+* [toArray](_piko_.md#toarray)
 * [toNumber](_piko_.md#tonumber)
 * [toString](_piko_.md#tostring)
 * [transform](_piko_.md#transform)
@@ -121,6 +122,12 @@ ___
 ###  countDigits
 
 • **countDigits**:
+
+___
+
+###  createArrayOfConsecutiveNumbers
+
+• **createArrayOfConsecutiveNumbers**:
 
 ___
 
@@ -430,15 +437,15 @@ ___
 
 ___
 
-###  sumNumberArrays
-
-• **sumNumberArrays**:
-
-___
-
 ###  throttle
 
 • **throttle**:
+
+___
+
+###  toArray
+
+• **toArray**:
 
 ___
 
