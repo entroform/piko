@@ -2,8 +2,8 @@ import {
   NumberOrRange,
   RangeArray,
 } from './interfaces';
+
 import {
-  getMaxArraysLength,
   isNumber,
 } from './shared';
 
@@ -89,10 +89,6 @@ export function getEuclideanDistance(a: number, b: number): number {
     : Math.sqrt(Math.abs((a - b) * (b - a)));
 }
 
-export function getSign(value: number): number {
-  return Math.sign(value) || 1;
-}
-
 export function hypotenuse(x: number, y: number): number {
   if (Math.hypot) {
     return Math.hypot(x, y);
@@ -112,27 +108,20 @@ export function lerp(t: number, from: number, to: number): number {
 
 export function randomNumber(
   range: NumberOrRange,
-  whole: boolean = false,
+  integerOnly: boolean = false,
   fixed: number = 2,
 ): number {
   const _range = getRangeFromNumberOrRange(range);
+  const [min, max] = _range;
 
-  return _range[0] === 0 && _range[1] === 1
-    ? whole
+  return min === 0 && max === 1
+    ? integerOnly
       ? Math.floor(Math.random() * 2)
       : parseFloat(Math.random().toFixed(fixed))
     : parseInt(
         transform(Math.random(), 1, _range, false).toFixed(0),
         10,
       );
-}
-
-export function reciprocal(value: number): number {
-  if (value != 0) {
-    return 1 / value;
-  }
-
-  throw new Error('reciprocal: Division by zero.');
 }
 
 export function roundTo(value: number, to: number = 0): number {
@@ -153,7 +142,7 @@ export function transform(
   const _from = getRangeFromNumberOrRange(from);
   const _to   = getRangeFromNumberOrRange(to);
 
-  // Division by zero returns Infinite in JavaScript?
+  // Division by zero returns Infinite in JavaScript
   const result = (value - _from[0]) * ((_to[1] - _to[0]) / (_from[1] - _from[0])) + _to[0];
 
   return clampResult

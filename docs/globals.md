@@ -6,6 +6,7 @@
 
 ### External modules
 
+* ["date"](modules/_date_.md)
 * ["general"](modules/_general_.md)
 * ["interfaces"](modules/_interfaces_.md)
 * ["number"](modules/_number_.md)

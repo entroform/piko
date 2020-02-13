@@ -18,7 +18,7 @@
 
 ▸ **getMaxArraysLength**(...`arrays`: unknown[][]): *number*
 
-*Defined in [shared.ts:7](https://github.com/nekobird/piko/blob/aa2d1f2/lib/shared.ts#L7)*
+*Defined in [shared.ts:7](https://github.com/nekobird/piko/blob/f4a9cf0/lib/shared.ts#L7)*
 
 **Parameters:**
 
@@ -34,7 +34,7 @@ ___
 
 ▸ **getRandomInteger**(`min`: number, `max`: number): *number*
 
-*Defined in [shared.ts:1](https://github.com/nekobird/piko/blob/aa2d1f2/lib/shared.ts#L1)*
+*Defined in [shared.ts:1](https://github.com/nekobird/piko/blob/f4a9cf0/lib/shared.ts#L1)*
 
 **Parameters:**
 
@@ -51,7 +51,7 @@ ___
 
 ▸ **isNullOrUndefined**(`value?`: any): *value is null | undefined*
 
-*Defined in [shared.ts:15](https://github.com/nekobird/piko/blob/aa2d1f2/lib/shared.ts#L15)*
+*Defined in [shared.ts:15](https://github.com/nekobird/piko/blob/f4a9cf0/lib/shared.ts#L15)*
 
 **Parameters:**
 
@@ -67,7 +67,7 @@ ___
 
 ▸ **isNumber**(`value?`: any): *value is number*
 
-*Defined in [shared.ts:11](https://github.com/nekobird/piko/blob/aa2d1f2/lib/shared.ts#L11)*
+*Defined in [shared.ts:11](https://github.com/nekobird/piko/blob/f4a9cf0/lib/shared.ts#L11)*
 
 **Parameters:**
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **toArray**<**T**>(`value?`: any): *T[]*
 
-*Defined in [shared.ts:19](https://github.com/nekobird/piko/blob/aa2d1f2/lib/shared.ts#L19)*
+*Defined in [shared.ts:19](https://github.com/nekobird/piko/blob/f4a9cf0/lib/shared.ts#L19)*
 
 **Type parameters:**
 

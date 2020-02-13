@@ -23,12 +23,15 @@
 * [debounce](_piko_.md#debounce)
 * [delay](_piko_.md#delay)
 * [fillArraysToLargestLength](_piko_.md#fillarraystolargestlength)
+* [getDay](_piko_.md#getday)
 * [getEuclideanDistance](_piko_.md#geteuclideandistance)
 * [getMaxArraysLength](_piko_.md#getmaxarrayslength)
 * [getMinArraysLength](_piko_.md#getminarrayslength)
+* [getNextMonthNumberOfDays](_piko_.md#getnextmonthnumberofdays)
+* [getNumberOfDaysInMonth](_piko_.md#getnumberofdaysinmonth)
+* [getPreviousMonthNumberOfDays](_piko_.md#getpreviousmonthnumberofdays)
 * [getRandomInteger](_piko_.md#getrandominteger)
 * [getRangeFromNumberOrRange](_piko_.md#getrangefromnumberorrange)
-* [getSign](_piko_.md#getsign)
 * [hasUppercaseLetter](_piko_.md#hasuppercaseletter)
 * [hypotenuse](_piko_.md#hypotenuse)
 * [isEmptyObject](_piko_.md#isemptyobject)
@@ -57,7 +60,6 @@
 * [promiseEach](_piko_.md#promiseeach)
 * [randomChoice](_piko_.md#randomchoice)
 * [randomNumber](_piko_.md#randomnumber)
-* [reciprocal](_piko_.md#reciprocal)
 * [removeExtraWhitespaces](_piko_.md#removeextrawhitespaces)
 * [removeNewLines](_piko_.md#removenewlines)
 * [removeTabs](_piko_.md#removetabs)
@@ -179,6 +181,12 @@ ___
 
 ___
 
+###  getDay
+
+• **getDay**:
+
+___
+
 ###  getEuclideanDistance
 
 • **getEuclideanDistance**:
@@ -197,6 +205,24 @@ ___
 
 ___
 
+###  getNextMonthNumberOfDays
+
+• **getNextMonthNumberOfDays**:
+
+___
+
+###  getNumberOfDaysInMonth
+
+• **getNumberOfDaysInMonth**:
+
+___
+
+###  getPreviousMonthNumberOfDays
+
+• **getPreviousMonthNumberOfDays**:
+
+___
+
 ###  getRandomInteger
 
 • **getRandomInteger**:
@@ -206,12 +232,6 @@ ___
 ###  getRangeFromNumberOrRange
 
 • **getRangeFromNumberOrRange**:
-
-___
-
-###  getSign
-
-• **getSign**:
 
 ___
 
@@ -380,12 +400,6 @@ ___
 ###  randomNumber
 
 • **randomNumber**:
-
-___
-
-###  reciprocal
-
-• **reciprocal**:
 
 ___
 
