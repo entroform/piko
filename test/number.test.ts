@@ -66,6 +66,8 @@ describe('clamp', () => {
     expect(clamp(-1, 0, 1)).toEqual(0);
     expect(clamp(0.5, 0, 1)).toEqual(0.5);
 
+    expect(clamp(2, 1, 3)).toEqual(2);
+
     expect(clamp(2, [0, 1])).toEqual(1);
     expect(clamp(-1, [0, 1])).toEqual(0);
     expect(clamp(0.5, [0, 1])).toEqual(0.5);

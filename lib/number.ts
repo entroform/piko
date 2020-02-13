@@ -143,23 +143,6 @@ export function sum(...values: number[]): number {
   return values.reduce((previous, current) => previous + current);
 }
 
-export function sumNumberArrays(...arrays: number[][]): number[] {
-  const maxLength = getMaxArraysLength(...arrays);
-
-  const sum: number[] = [];
-
-  for (let i = 0; i < maxLength; i++) {
-    sum[i] = 0;
-    arrays.forEach(array => {
-      if (isNumber(array[i])) {
-        sum[i] += array[i];
-      }
-    });
-  }
-
-  return sum;
-}
-
 // https://math.stackexchange.com/questions/377169/calculating-a-value-inside-one-range-to-a-value-of-another-range/377174
 export function transform(
   value: number,
