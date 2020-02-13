@@ -92,8 +92,10 @@ export function cycleArrayNext<A>(array: A[]): Function {
  */
 export function debounce(func: Function, delayInSeconds: number): Function {
   let timeout: number;
+
   return () => {
     clearTimeout(timeout);
+
     timeout = setTimeout(
       () => func.apply(this, arguments),
       delayInSeconds * 1000
@@ -170,7 +172,9 @@ export function memo<T>(func: Function, cache: Map<string, T>): Function {
 
 export function once(fn: Function): Function {
   let isCalled = false;
+
   let returnValue = null;
+
   return (...args) => {
     if (!isCalled) {
       returnValue = fn(...args);

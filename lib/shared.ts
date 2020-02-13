@@ -16,6 +16,6 @@ export function isNullOrUndefined(value?: any): value is null | undefined {
   return typeof value === 'undefined' || value === null;
 }
 
-export function toArray(value?: any): unknown[] {
+export function toArray<T = unknown>(value?: any): T[] {
   return Array.isArray(value) ? value : [value];
 }
