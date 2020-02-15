@@ -4,6 +4,7 @@ import {
   isSnakeCase,
   toString,
   uppercaseFirstLetter,
+  repeatString,
 } from '../lib/piko';
 
 describe('hasUppercaseLetter', () => {
@@ -65,5 +66,14 @@ describe('toString', () => {
     expect(toString('')).toEqual('');
     expect(toString('123')).toEqual('123');
     expect(toString('abc')).toEqual('abc');
+  });
+});
+
+describe('repeatString', () => {
+  it('should return repeated string', () => {
+    expect(repeatString('hello', 3)).toEqual('hellohellohello');
+    expect(repeatString('hello', 0)).toEqual('');
+    expect(repeatString('hello', 3, ' ')).toEqual('hello hello hello');
+    expect(repeatString('hello', 0, ' ')).toEqual('');
   });
 });
