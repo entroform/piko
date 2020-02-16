@@ -117,6 +117,6 @@ export function toString(value: string | number): string {
 
 export function repeatString(string: string, count: number, between: string = ''): string {
   return count > 0
-    ? [...Array(count - 1).fill(string + between), string].join('')
+    ? (string + between).repeat(count - 1) + string
     : '';
 }
