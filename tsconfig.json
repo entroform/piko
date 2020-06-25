@@ -7,9 +7,9 @@
     "lib": [
       "dom.iterable",
       "dom",
-      "esnext"
+      "es2020"
     ],
-    "module": "esnext",
+    "module": "es2020",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "noImplicitThis": false,
@@ -20,7 +20,7 @@
     "rootDir": ".",
     "sourceMap": true,
     "strict": true,
-    "target": "esnext",
+    "target": "es2020",
   },
   "include": [
     "./lib/*",
